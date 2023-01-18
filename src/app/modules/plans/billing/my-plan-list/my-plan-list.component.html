@@ -1,0 +1,82 @@
+<mat-card class="my-card">
+  <div class="overview-card">
+
+    <mat-card-header>
+      <div class="title">
+        Subscription History
+        <div class="float-right" style="    margin-top: -4px;">
+          <button mat-flat-button  class="buy-new" routerLink="pricing">Buy New Plan</button>
+  
+        </div>
+      </div>
+    </mat-card-header>
+  </div>
+  <mat-card-content>
+    <app-group-select [showLabel]="true" appearance="standard" (selectedGroup)="onSelectionChange($event)"></app-group-select>
+    <div class="example-container ">
+      <table mat-table [dataSource]="plans" class=" my-table">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Plan Name </th>
+          <td mat-cell *matCellDef="let element"> {{ element.subscription_plan.name | titlecase}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="effective_from">
+          <th mat-header-cell *matHeaderCellDef> Effective From </th>
+          <td mat-cell *matCellDef="let element"> {{element.effective_from | date:'dd/M/yyyy h:mm a'}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="effective_upto">
+          <th mat-header-cell *matHeaderCellDef> Effective Upto </th>
+          <td mat-cell *matCellDef="let element"> {{element.effective_upto | date:'dd/M/yyyy h:mm a'}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="quantity">
+          <th mat-header-cell *matHeaderCellDef> Quantity </th>
+          <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="hits_used">
+          <th mat-header-cell *matHeaderCellDef> Hits Used </th>
+          <td mat-cell *matCellDef="let element"> {{element.hits_used}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="model_trained">
+          <th mat-header-cell *matHeaderCellDef> Model Trained </th>
+          <td mat-cell *matCellDef="let element"> {{element.model_trained}} </td>
+        </ng-container>
+        <ng-container matColumnDef="models_downloaded">
+          <th mat-header-cell *matHeaderCellDef> Model Downloaded </th>
+          <td mat-cell *matCellDef="let element"> {{element.models_downloaded}} </td>
+        </ng-container>
+        <ng-container matColumnDef="user">
+          <th mat-header-cell *matHeaderCellDef> Purchased By </th>
+          <td mat-cell *matCellDef="let element"> {{element.user.email}} </td>
+        </ng-container>
+        <ng-container matColumnDef="purchased_on">
+          <th mat-header-cell *matHeaderCellDef> Purchased On </th>
+          <td mat-cell *matCellDef="let element"> {{element.purchased_on | date:'dd/M/yyyy h:mm a'}} </td>
+        </ng-container>
+        <ng-container matColumnDef="price">
+          <th mat-header-cell *matHeaderCellDef> Price </th>
+          <td mat-cell *matCellDef="let element"> {{  element.subscription_plan.price | currency:'INR'}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row  *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      </div>
+
+
+    <mat-paginator [length]="totalItem" showFirstLastButtons [pageSizeOptions]="[10, 25, 100]" (page)="onPageChange($event)"></mat-paginator>
+
+
+  </mat-card-content>
+</mat-card>

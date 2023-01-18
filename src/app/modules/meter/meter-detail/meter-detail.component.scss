@@ -1,0 +1,73 @@
+@import 'card' ;
+.example-card {
+  max-width: 100%;
+
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+:host {
+  display: block;
+}
+.fade {
+  opacity: 0;
+}
+
+mat-card-content{
+  text-align: justify;
+  // overflow: auto;
+  height: 100%;
+}
+mat-card{
+  // max-height: 360px;
+  display: flex;
+  flex-direction: column;
+  mat-card-title {
+    flex-basis: 100%;
+    margin: auto 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #202124;
+    font-family: "Google Sans", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    letter-spacing: 0;
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+    color: inherit;
+    line-height: 40px;
+    width: 100%;
+    user-select: none;
+    margin: 0;
+  }
+
+}
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+  position: relative;
+    background: #c1c1c1;
+    border-radius: 3px;
+    z-index: 2;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #007ad9;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #007ad9;
+}

@@ -1,0 +1,20 @@
+<div class="container-fluid p-0">
+  <div class="row m-0 ">
+      <ng-container *ngFor="let image of images; let i = index">
+        <div class="col-auto " class="image-div p-2 ">
+          <label for="{{image.id}}"><img [src]="image.name"/></label>
+        </div>
+      </ng-container>
+  </div>
+  <div class="row">
+    <div class="col">
+      <mat-paginator class="ml-auto p-2 bd-highlight"
+      [length]="imageCount"
+      [pageSize]="pageSize"
+      [pageSizeOptions]="pageSizeOptions"
+      (page)="onPageChange($event)"
+      >
+    </mat-paginator>
+    </div>
+  </div>
+</div>

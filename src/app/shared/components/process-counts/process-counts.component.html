@@ -1,0 +1,178 @@
+<!-- <mat-card  > 
+  <div class=""*ngIf="data$ | async as process">
+    <div *ngIf="_isDashboard" class="">
+      <mat-card-header>
+        <div class="title" style="font-size: 21px;    color: #1f2d7e;" > <strong>Model pipeline status</strong> </div>
+      </mat-card-header>
+      <mat-card-content class="d-flex flex-row flex-wrap justify-content-center">
+        <ng-container >
+        
+              <app-feature-card  [title]="'Training process'" [pending]="process[0].pending_training_process" [running]="process[0].running_training_process"></app-feature-card>
+          <app-feature-model-card [ready]="process[0].ready_to_use_models"></app-feature-model-card>
+          <app-feature-card [title]="'Production process'" [pending]="process[0].pending_production_process" [running]="process[0].running_production_process"></app-feature-card>
+        </ng-container>
+      </mat-card-content>
+
+    </div>
+  </div>
+  <div  class="">
+
+    <div   id="myplot">
+      
+    </div>
+  </div>
+  
+</mat-card> -->
+<ng-container *ngIf="data$ | async as process">
+  <mat-card  *ngIf="_isDashboard" class="my-card  mat-elevation-z0 normal-card">
+    <mat-card-header>
+      <div class="title" > Cluster WorkLoad </div>
+    </mat-card-header>
+    <mat-card-content class="d-flex flex-row flex-wrap justify-content-center">
+      <ng-container >
+          
+        <!-- <app-feature-model-card [ready]="process[0].ready_to_use_models"></app-feature-model-card> -->
+        
+       
+        <div class="" style="    margin-right: 24px;margin-top: 8px;">
+          <p style="padding-left: 50px;padding-bottom: 6px;">Ready To Use Models</p>
+          <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" height="170" width="220"
+            [chartType]="doughnutChartType" ></canvas>
+            <p style="      padding-left: 84px;font-size: 13px;padding-top: 13px;">
+              {{process[0].ready_to_use_models}} Models</p>
+        </div>
+          <div class="">
+  
+            <div style="display: block">
+              <canvas baseChart width="250" height="250"
+                      [datasets]="barChartData"
+                      [labels]="barChartLabels"
+                      [options]="barChartOptions"
+                      [legend]="barChartLegend"
+                      [chartType]="barChartType">
+              </canvas>
+            </div>
+          </div>
+          
+      </ng-container>
+    </mat-card-content>
+  </mat-card>
+<mat-card *ngIf="!_isDashboard" class="my-card second-card mat-elevation-z0">
+  <mat-card-header>
+    <div class="title"  > <strong>Model pipeline status</strong> </div>
+  </mat-card-header>
+  <mat-card-content class="d-flex flex-row flex-wrap justify-content-center">
+    <ng-container *ngIf="!isSequential; else sequentialModelProcess">
+      <!-- <app-feature-model-card [ready]="process[0].ready_to_use_models"></app-feature-model-card> -->
+
+      <div class="" style="    margin-right: 24px;margin-top: 8px;">
+        <p style="padding-left: 50px;padding-bottom: 6px;">Ready To Use Models</p>
+        <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" height="170" width="220"
+          [chartType]="doughnutChartType" ></canvas>
+          <p style="      padding-left: 84px;font-size: 13px;padding-top: 13px;">
+            {{process[0].ready_to_use_models}} Models</p>
+      </div>
+        <div class="">
+
+          <div style="display: block">
+            <canvas baseChart width="250" height="250"
+                    [datasets]="barChartData"
+                    [labels]="barChartLabels"
+                    [options]="barChartOptions"
+                    [legend]="barChartLegend"
+                    [chartType]="barChartType">
+            </canvas>
+          </div>
+        </div>
+        
+      
+      <!-- <app-feature-card  [title]="'Training process'" [pending]="process[0].pending_training_process" [running]="process[0].running_training_process"></app-feature-card>
+      <app-feature-model-card [ready]="process[0].ready_to_use_models"></app-feature-model-card>
+      <app-feature-card [title]="'Production process'" [pending]="process[0].pending_production_process" [running]="process[0].running_production_process"></app-feature-card> -->
+    </ng-container>
+
+    <ng-template #sequentialModelProcess>
+      <mat-card  style="background-color: #e5ebfb;" class="mat-elevation-z0">                                                                      
+        <mat-card-subtitle> Cropping Model Traning Process </mat-card-subtitle>
+        <mat-card-content>
+          <div class="content">
+  
+            <div class="feature">
+      
+              <div class="feature-count" >{{process.crop_model.pending_training_process}}</div>
+              <div class="feature-text">Pending</div>
+            </div>
+            <br>
+            <br>
+            <div class="feature">
+      
+              <div class="feature-count">{{process.crop_model.running_training_process}}</div>
+              <div class="feature-text">Running</div>
+            </div>
+    
+            <div class="feature">
+      
+              <div class="feature-count">{{process.crop_model.ready_to_use_models}}</div>
+              <div class="feature-text">Ready To Use Models</div>
+            </div>
+          </div>
+        </mat-card-content>
+      
+      </mat-card>
+      <mat-card style="background-color: #e5ebfb;" class="mat-elevation-z0">
+        <mat-card-subtitle> Digit Model Traning Process </mat-card-subtitle>
+        <mat-card-content>
+          <div class="content">
+  
+            <div class="feature">
+      
+              <div class="feature-count" >{{process.digit_model.pending_training_process}}</div>
+              <div class="feature-text">Pending</div>
+            </div>
+            <div class="feature">
+      
+              <div class="feature-count">{{process.digit_model.running_training_process}}</div>
+              <div class="feature-text">Running</div>
+            </div>
+    
+            <div class="feature">
+      
+              <div class="feature-count">{{process.digit_model.ready_to_use_models}}</div>
+              <div class="feature-text">Ready To Use Models</div>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+      
+
+
+     <mat-card style="background-color: #e5ebfb;"  class="mat-elevation-z0">
+      <mat-card-subtitle> Production Process </mat-card-subtitle>
+      <mat-card-content>
+        <div class="content">
+
+        <div class="feature">
+  
+          <div class="feature-count" >{{process.pending_production_process}}</div>
+          <div class="feature-text">Pending</div>
+        </div>
+        <div class="feature">
+  
+          <div class="feature-count">{{process.running_production_process}}</div>
+          <div class="feature-text">Running</div>
+        </div> 
+        </div>
+      </mat-card-content>
+     </mat-card>
+     
+       
+
+    </ng-template>
+
+    
+
+  </mat-card-content>
+</mat-card>
+
+</ng-container>
+

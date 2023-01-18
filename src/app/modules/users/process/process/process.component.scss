@@ -1,0 +1,27 @@
+@import "card";
+mat-card {
+  height: calc(100% - 56px) !important;
+  .mat-card-header {
+    margin-top: 2px;
+   
+    background: #e5ebfb;
+    box-shadow: 1px 1px 3px 1px darkgrey;
+
+    margin-bottom: 5px;
+    height: 52px;
+    display: block;
+
+    //  border-bottom: .2rem solid #1f2d7e;
+    width: 101.5%;
+    margin-left: -13.5px;
+
+
+    .mat-card-title {
+      color: var(--color-primary);
+      padding-top: 15px;
+      padding-left: 31px;
+      font-family: "Nunito-Regular";
+      font-size: 22px;
+    }
+  }
+}

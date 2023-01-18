@@ -1,0 +1,7 @@
+<h1 mat-dialog-title>Payment successful</h1>
+<mat-dialog-content>
+  <div>Your payment has been successful.</div>
+  <div>
+    <a routerLink="/dashboard" (click)="dialogRef.close()">Click here</a> to go to dashboard now else redirecting you to dashboard in {{ timeLeft }} seconds
+  </div>
+</mat-dialog-content>

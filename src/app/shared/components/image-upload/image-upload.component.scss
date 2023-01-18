@@ -1,0 +1,77 @@
+.uploadfilecontainer {
+  background-image: url("/assets/images/upload-image.png");
+  background-repeat: no-repeat;
+  background-size: 100px;
+  background-position: center;
+  height: 200px;
+  width: 80%;
+  margin: 20px auto;
+  border: 2px dashed var(--color-primary);
+  border-radius: 10px;
+}
+
+.uploadfilecontainer:hover {
+  cursor: pointer;
+  background-color: #9ecbec !important;
+  opacity: 0.8;
+}
+
+.files-list {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: 10px auto;
+  background: #ffffff;
+  border: 1px dashed;
+  border-radius: 12px;
+  padding: 5px;
+  color:var(--color-primary);
+  .filename{
+    align-self: center;
+  }
+}
+
+.files-list .delete-file {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.files-list .delete-file img {
+  width: 30px;
+}
+.file-list-container{
+  max-height: 200px;
+  overflow-y: auto;
+  margin-bottom: 8px;
+}
+.upload-text{
+  text-align: center;
+  bottom:10%;
+  margin-top: 160px;
+}
+
+@media only screen and (max-width: 600px) {
+  .uploadfilecontainer {
+    height:150px;
+    background-size: 50px;
+  }
+  .upload-text{
+  margin-top: 110px;
+
+  }
+}
+
+
+@media only screen and (max-width: 600px) {
+  .uploadfilecontainer {
+    height:150px;
+    background-size: 50px;
+    margin: 10px auto;
+  }
+  .upload-text{
+  margin-top: 110px;
+
+  }
+}
+

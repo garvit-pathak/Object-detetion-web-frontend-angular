@@ -1,0 +1,62 @@
+@keyframes fade {
+  from {
+    opacity: 1.0;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  to {
+    opacity: 1.0;
+  }
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: 1.0;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  to {
+    opacity: 1.0;
+  }
+}
+
+.blink {
+  animation: fade 1000ms infinite;
+  -webkit-animation: fade 1000ms infinite;
+}
+
+.training {
+  color: red;
+  pointer-events: none;
+
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+.start-train {
+  width: 200px;
+  height: 40px;
+  line-height: 1rem;
+  font-size: 20px;
+}
+

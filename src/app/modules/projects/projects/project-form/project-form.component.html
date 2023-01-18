@@ -1,0 +1,35 @@
+
+<h1 mat-dialog-title>{{title}}</h1>
+<mat-dialog-content>
+  <form [formGroup]="form">
+    <div *ngIf="!project">
+      <app-group-select  (selectedGroup)="onGroupSelect($event)" [appearance]="'outline'"></app-group-select>
+    </div>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Project Name</mat-label>
+        <input matInput  formControlName="name" style="text-transform: capitalize" cdkFocusInitial>
+        <mat-error *ngIf="hasError('name', 'required')">Project name is required.</mat-error>
+        <mat-error *ngIf="form.controls['name'].hasError('maxlength')">maximum length is 255.</mat-error>
+
+        <mat-error *ngIf="form.controls['name'].hasError('available')">Project name not available.</mat-error>
+
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Project Description</mat-label>
+        <textarea matInput rows="5" #description formControlName="description"></textarea>
+        <mat-hint align="end">{{description.value?.length || 0}}/3000</mat-hint>
+        <mat-error *ngIf="hasError('description','maxlength')">maximum length is 3000.</mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+    </div>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-raised-button (click)="onSubmit()" [disabled]="form.invalid" color="primary" >Submit</button>
+</mat-dialog-actions>

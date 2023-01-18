@@ -1,0 +1,8 @@
+<div class="container">
+  <div class="row">
+    <div class="col" style="height: 100%;">
+      <app-project-user-form (addUser)="addUser()" *ngIf="project && project.hasProjectPermission()" [user]="user"></app-project-user-form>
+      <app-project-team-list [users]="users"  (editUser)="editUser($event)"></app-project-team-list>
+    </div>
+  </div>
+</div>

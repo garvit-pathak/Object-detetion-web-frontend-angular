@@ -1,0 +1,33 @@
+<div class="my-container">
+
+  <div id="header">
+    <div class="wrapper">
+      <div class="d-flex flex-column w-100 align-content-center flex-md-row">
+        <div style="flex-basis: 50%;align-self: center;">
+          <div class="breadcrumbs ">
+            <a routerLink="/faq" style="color:white;font-weight:400">Home</a>
+            <mat-icon style="font-style: normal;
+            font-variant: normal;
+            text-rendering: auto;
+            line-height: 1;font-size:12px; margin-left: 6px; ">arrow_forward_ios</mat-icon>
+
+            <ng-container *ngIf="faqId">
+              <a routerLink="/faq/{{category.slug}}" style="color:white;font-weight:400">{{category.title}}</a>
+            <mat-icon style="font-style: normal;
+            font-variant: normal;
+            text-rendering: auto;
+            line-height: 1;font-size:12px; margin-left: 6px; ">arrow_forward_ios</mat-icon>
+            </ng-container>
+          </div>
+      <h1 class="heading" *ngIf="!faqId">{{category.title}}</h1>
+        <h3 *ngIf="!faqId">{{category.description}}</h3>
+        </div>
+        <div class="search-div" style="flex-basis: 50%;">
+
+          <app-faq-search></app-faq-search>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

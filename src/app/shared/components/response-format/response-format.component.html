@@ -1,0 +1,19 @@
+<ng-container *ngIf="visible === 'model'">
+  <div class="heading"> Request Format:</div>
+  <div class="content">
+    curl -X POST -F 'name=@path/to/your/filename' https://www.xtract.in:5000/api/v2/model/<ng-container *ngIf="model$ | async as model">{{model.api_key}}</ng-container>/
+  </div>
+  <div  class="heading">Response Format</div>
+  <pre  class="content">{{modelKeyResponseObject | json}}</pre>
+
+</ng-container>
+<ng-container *ngIf="visible === 'image'">
+  <div  class="heading"> Request Format:</div>
+  <div class="content">
+    curl
+    https://www.xtract.in:5000/api/v2/projects/models/production-images/?api_key=<ng-container *ngIf="model$ | async as model">{{model.api_key}}</ng-container>?limit=NUMBER_OF_IMAGES_TO_FETCH&offset=OFFSET_VALUE
+  </div>
+  <div  class="heading">Response Format</div>
+  <pre class="content">{{accessImageResponseObject |json}}</pre>
+
+</ng-container>

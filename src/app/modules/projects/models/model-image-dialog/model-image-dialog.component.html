@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>Model images</h1>
+<mat-dialog-content #content>
+  <div class="row">
+    <div class="col">
+      <app-image-list #list1 [images]="imageList" [selectable]="data.deletePermission"
+      [showPaginator]="true"  [isExcerpt]="false"
+      [imageCount]="imagesCount"
+      (pageChange)="onPageChange($event)"
+       *ngIf="imageList"></app-image-list>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>

@@ -1,0 +1,178 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+
+
+
+    <mat-nav-list dense class="main-list profile">
+      <a routerLink="users/profile" class="profile-info" mat-list-item
+        (click)=" drawer.mode === 'side' || drawer.close() " routerLinkActive="link-active">
+        <img class="profile-image" src="assets/images/Group1.png" alt="">Divyanshu
+      </a>
+      <!-- <mat-expansion-panel style="background-color: rgb(95 111 197);padding: 0px;">
+        <mat-expansion-panel-header style="height: 56px;padding: 0px;padding-right: 39px;">
+
+        </mat-expansion-panel-header>
+
+        <button class="profile-links" routerLink="users/profile" mat-menu-item>
+          <mat-icon style="font-size: 17px;">person</mat-icon>Profile
+        </button>
+        <button class="profile-links" mat-menu-item >
+          <mat-icon style="font-size: 17px;">settings</mat-icon>Setting
+        </button>
+
+
+      </mat-expansion-panel> -->
+
+    </mat-nav-list>
+    <mat-divider class="top-divider"></mat-divider>
+    <mat-nav-list dense class="main-list">
+      <a class="list-items" mat-list-item routerLink="/dashboard" (click)="drawer.mode === 'side' || drawer.close()"
+        routerLinkActive="link-active">
+        <mat-icon matListIcon>dashboard</mat-icon>Dashboard
+      </a>
+      <a class="list-items" mat-list-item routerLink="/users/members" (click)="drawer.mode === 'side' || drawer.close()"
+        routerLinkActive="link-active">
+        <mat-icon matListIcon>groups</mat-icon>Members
+      </a>
+      <a class="list-items" mat-list-item routerLink="/ready-to-use" (click)="drawer.mode === 'side' || drawer.close()"
+        routerLinkActive="link-active">
+        <mat-icon matListIcon>miscellaneous_services</mat-icon>Prebuilt Models
+      </a>
+      <a class="list-items" mat-list-item routerLink="/tasks" (click)="drawer.mode === 'side' || drawer.close()"
+        routerLinkActive="link-active">
+        <mat-icon matListIcon>calendar_today</mat-icon>Tasks
+      </a>
+      <a class="list-items" mat-list-item routerLink="/process" (click)="drawer.mode === 'side' || drawer.close()"
+        routerLinkActive="link-active">
+        <mat-icon matListIcon>model_training</mat-icon>Process
+      </a>
+      <a class="list-items" mat-list-item routerLink="/meter-reading" (click)="drawer.mode === 'side' || drawer.close()"
+        routerLinkActive="link-active">
+        <mat-icon matListIcon>chrome_reader_mode</mat-icon>Meter Reading
+      </a>
+      <a class="list-items" mat-list-item routerLink="/detection-detail"
+        (click)="drawer.mode === 'side' || drawer.close()" routerLinkActive="link-active">
+        <mat-icon matListIcon>aspect_ratio</mat-icon>Detection App
+      </a>
+      <!--detection app-->
+      <a class="list-items" mat-list-item routerLink="/tickets" (click)="drawer.mode === 'side' || drawer.close()"
+        routerLinkActive="link-active">
+        <mat-icon matListIcon>note</mat-icon>Tickets
+      </a>
+      <a class="list-items" mat-list-item routerLink="/plans" (click)="drawer.mode === 'side' || drawer.close()"
+        routerLinkActive="link-active">
+        <mat-icon matListIcon>money</mat-icon>Plans
+      </a>
+      <ng-container #projectSidebar *ngIf="currentProject$ | async as project">
+        <div mat-subheader>{{ project?.project_name}}</div>
+        <a class="list-items" mat-list-item (click)="drawer.mode === 'side' || drawer.close()"
+          [routerLink]="['/projects/',project.project_id]" routerLinkActive="link-active"
+          [routerLinkActiveOptions]="{exact: true}">
+          <mat-icon matListIcon>apps</mat-icon>Overview
+        </a>
+        <a class="list-items" mat-list-item (click)="drawer.mode === 'side' || drawer.close()"
+          [routerLink]="['/projects/',project.project_id,'team']" routerLinkActive="link-active"
+          [routerLinkActiveOptions]="{exact: true}">
+          <mat-icon matListIcon>group</mat-icon>Team
+        </a>
+
+        <ng-container #projectSidebar *ngIf="currentModel$ | async as model">
+          <div mat-subheader>{{ model?.name}}</div>
+          <ng-container *ngIf="!(model.name == 'cropping_model' || model.name == 'digit_model'); else sequential">
+            <a class="list-items" mat-list-item (click)="drawer.mode === 'side' || drawer.close()"
+              [routerLink]="['/projects/',project.project_id,'models',model.id]" routerLinkActive="link-active"
+              [routerLinkActiveOptions]="{exact: true}">
+              <mat-icon matListIcon>apps</mat-icon>Model Overview
+            </a>
+
+
+
+            <a class="list-items" mat-list-item (click)="drawer.mode === 'side' || drawer.close()"
+              [ngClass]="(model.number_of_images === 0 ) ? 'disabledNav' : null"
+              [routerLink]="['/projects/',project.project_id,'models',model.id,'training']"
+              routerLinkActive="link-active" [routerLinkActiveOptions]="{exact: true}">
+              <mat-icon matListIcon>model_training</mat-icon>Train Model
+            </a>
+
+            <a class="list-items" mat-list-item (click)="drawer.mode === 'side' || drawer.close()"
+              [ngClass]="(model.status !== 'Ready To Use' && model.status !== 'Training Started') ? 'disabledNav' : null"
+              [routerLink]="['/projects/',project.project_id,'models',model.id,'use']" routerLinkActive="link-active"
+              [routerLinkActiveOptions]="{exact: true}">
+              <mat-icon matListIcon>memory</mat-icon>Use Model
+            </a>
+
+
+            <a class="list-items" mat-list-item (click)="drawer.mode === 'side' || drawer.close()"
+              [routerLink]="['/projects/',project.project_id,'models',model.id,'process-history']"
+              routerLinkActive="link-active" [routerLinkActiveOptions]="{exact: true}">
+              <mat-icon matListIcon>history</mat-icon>Production History
+            </a>
+          </ng-container>
+
+          <ng-template #sequential>
+            <a class="list-items" mat-list-item (click)="drawer.mode === 'side' || drawer.close()"
+              [ngClass]="(model.number_of_images === 0 ) ? 'disabledNav' : null"
+              [routerLink]="['/projects/',project.project_id,'models',model.id,'training']"
+              routerLinkActive="link-active" [routerLinkActiveOptions]="{exact: true}">
+              <mat-icon matListIcon>model_training</mat-icon>Train Model
+            </a>
+          </ng-template>
+
+        </ng-container>
+      </ng-container>
+    </mat-nav-list>
+
+    <mat-nav-list dense class="main-list footer" style="height:unset;">
+      <mat-divider></mat-divider>
+      <a class="list-items" mat-list-item (click)="drawer.mode === 'side' || drawer.close()" routerLink="/faq"
+        routerLinkActive="link-active">
+        <mat-icon matListIcon>help</mat-icon>Help
+      </a>
+      <a class="list-items" mat-list-item (click)="drawer.mode === 'side' || drawer.close()"
+        href="http://xaltanalytics.com/about-us" routerLinkActive="link-active">
+        <mat-icon matListIcon>import_contacts</mat-icon>About Us
+      </a>
+
+
+    </mat-nav-list>
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span class="logo" routerLink="/dashboard">
+
+        <span class="x">X</span>
+        <span class="tract">tract</span>
+      </span>
+
+      <div class="spacer"></div>
+
+      <div class="main-icon" >
+
+        <mat-icon class="notification-icon" (click)="openSnackBar()">notifications</mat-icon>
+        <mat-icon class="settings-icon" >settings</mat-icon>
+        <span [matMenuTriggerFor]="matmenu" class="profile-icon">
+          <mat-icon>account_circle</mat-icon>
+          <mat-icon class="down-arrow" >keyboard_arrow_down</mat-icon>
+        </span>
+      </div>
+
+      <mat-menu #matmenu="matMenu">
+        <ng-template matMenuContent>
+          <button routerLink="users/profile" mat-menu-item>Profile<mat-icon style="font-size: 17px;">person</mat-icon>
+          </button>
+          <button mat-menu-item (click)="logout()">LogOut<mat-icon style="font-size: 17px;">login</mat-icon></button>
+        </ng-template>
+      </mat-menu>
+
+    </mat-toolbar>
+    <ng-content></ng-content>
+
+    <!-- Add Content Here -->
+  </mat-sidenav-content>
+</mat-sidenav-container>

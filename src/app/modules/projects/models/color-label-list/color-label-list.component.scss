@@ -1,0 +1,29 @@
+@import "card";
+
+mat-card-content{
+  max-height: 500px;
+  overflow-y: auto;
+}
+.label-name{
+  cursor: pointer;
+}
+.delete-icon{
+  cursor: pointer;
+}
+
+.no-label{
+  margin-left: auto;
+  margin-top: 16px;
+  color: var(--color-warn);
+}
+mat-card{
+  height: 421.5px !important;
+  box-shadow: 2px 2px 9px -4px grey;
+ mat-card-header{
+  .title{
+    margin-top: -12px;
+
+    color: #3f51b5;
+  }
+ }
+}

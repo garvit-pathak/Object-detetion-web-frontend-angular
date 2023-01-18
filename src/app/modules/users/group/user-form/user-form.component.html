@@ -1,0 +1,67 @@
+<div class="head">
+  <h1 class="mat-title">{{title}}</h1>
+  
+</div>
+<div class="container-md" id="editUser" >
+  <div class="row">
+    
+    <div class="col mt-2 mb-2">
+     
+      <form #formDirective [formGroup]="form">
+        <div *ngIf="editMode == false">
+          <app-group-select [showLabel]="true"  (selectedGroup)="onGroupSelect($event)" [appearance]="'outline'"></app-group-select>
+        </div>
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input type="email"
+                   placeholder="Email"
+                   matInput
+                   style="text-transform: capitalize;"
+                   formControlName="email"
+                   [matAutocomplete]="auto"
+                   (blur)="checkCountry()"
+                   [attr.disabled]="editMode == true ? false : null">
+            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" (optionSelected)="countryClick($event)">
+
+              <ng-container *ngIf="!isLoading">
+                <ng-container *ngIf="!noUserFound; else noUserFoundBlock">
+                  <mat-option *ngFor="let user of filteredUsers" [value]="user" >
+                    {{user.email | titlecase}}
+                  </mat-option>
+
+                </ng-container>
+
+                <ng-template #noUserFoundBlock>
+                  <mat-option [value]="">No user found</mat-option>
+                </ng-template>
+
+              </ng-container>
+
+
+
+
+
+            </mat-autocomplete>
+            <mat-error *ngIf="hasError('email', 'required')">Email is required.</mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Role</mat-label>
+            <mat-select formControlName="role">
+              <mat-option *ngFor="let role of roles" [value]="role.id" >
+                <span class="role role-{{role.name}}"> {{role.name | titlecase}}</span>
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="hasError('role', 'required')">Role is required.</mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <button mat-raised-button color="primary" (click)="addUserToGroup()" [disabled]="form.invalid">Add member</button>
+          <button mat-button *ngIf="editMode == true"  (click)="onCancel()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

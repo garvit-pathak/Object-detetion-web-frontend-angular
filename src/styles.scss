@@ -1,0 +1,280 @@
+/* You can add global styles to this file, and also import other style files */
+
+// Imports functions, variables, and mixins that are needed by other Bootstrap files
+@import "_variables";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+// Import Bootstrap Reboot
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/utilities";
+@import "~bootstrap/scss/toasts";
+@import "_reset";
+@import "_theme";
+
+@font-face {
+  font-family: "Gilroy-Regular";
+  src: url(assets/font/Gilroy-Regular.ttf);
+  font-display: swap
+}
+@font-face {
+  font-family: "Gilroy-Medium";
+  src: url(assets/font/Gilroy-Medium.ttf);
+  font-display: swap
+}
+@font-face {
+    font-family: "Poppins-Regular";
+    src: url(assets/font/Poppins-Regular.ttf);
+    font-display: swap
+  }
+  @font-face {
+    font-family: "Poppins-Medium";
+    src: url(assets/font/Poppins-Medium.ttf);
+    font-display: swap
+  }
+  @font-face {
+    font-family: "Poppins-SemiBold";
+    src: url(assets/font/Poppins-SemiBold.ttf);
+    font-display: swap
+  }
+
+  @font-face {
+    font-family: "MazzardM-Regular";
+    src: url(assets/font/MazzardM-Regular.otf);
+    font-display: swap
+  }
+
+  @font-face {
+    font-family: "MazzardM-Bold";
+    src: url(assets/font/Poppins-Bold.ttf);
+    font-display: swap
+  }
+
+  @font-face {
+    font-family: "MazzardM-Medium";
+    src: url(assets/font/MazzardM-Medium.otf);
+    font-display: swap
+  }
+
+  @font-face {
+    font-family: "Nunito-Regular";
+    src: url(assets/font/Nunito-Regular.ttf);
+    font-display: swap
+  }
+
+  @font-face {
+    font-family: "Nunito-Bold";
+    src: url(assets/font/Nunito-Bold.ttf);
+    font-display: swap
+  }
+
+  @font-face {
+    font-family: "Nunito-Light";
+    src: url(assets/font/Nunito-Light.ttf);
+    font-display: swap
+  }
+
+  @font-face {
+    font-family: "Nunito-SemiBold";
+    src: url(assets/font/Nunito-SemiBold.ttf);
+    font-display: swap
+  }
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+.spacer {
+  flex: 1 1 auto;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5.2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+.role {
+  border-radius: 2px;
+  padding: 0.25em 0.5em;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 9px;
+  letter-spacing: 0.3px;
+
+  &.role-primary {
+    background-color: #c8e6c9;
+    color: #256029;
+  }
+
+  &.role-admin {
+    background-color: #ffcdd2;
+    color: #c63737;
+  }
+
+  &.role-tagger {
+    background-color: #feedaf;
+    color: #8a5340;
+  }
+
+  &.role-manager {
+    background-color: #b3e5fc;
+    color: #23547b;
+  }
+
+  &.role-developer {
+    background-color: #eccfff;
+    color: #694382;
+  }
+}
+
+.model {
+  border-radius: 2px;
+  padding: 0.25em 0.5em;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 9px;
+  letter-spacing: 0.3px;
+
+  &.model-Model {
+    background-color: #b3e5fc;
+    color: #23547b;
+  }
+
+  &.model-Images {
+    background-color: #feedaf;
+    color: #8a5340;
+  }
+
+  &.model-Training {
+    &.Queue{
+      background-color: #eccfff;
+      color: #694382;
+    }
+    &.Started {
+      background-color: #edffcf;
+      color: #6f8243;
+    }
+    &.Failed {
+      background-color: #ffcdd2;
+      color: #c63737;
+    }
+  }
+
+  &.model-Ready {
+    background-color: #c8e6c9;
+    color: #256029;
+  }
+
+}
+
+.ticket {
+  border-radius: 2px;
+  padding: 0.25em 0.5em;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 9px;
+  letter-spacing: 0.3px;
+  &.ticket_type-PAYMENT {
+    background-color: #c8e6c9;
+    color: #256029;
+  }
+
+  &.ticket_type-PRODUCT {
+    background-color: #b3e5fc;
+    color: #23547b;
+  }
+
+  &.ticket_type-OTHER {
+    background-color: #ffd8b2;
+    color: #805b36;
+  }
+
+  &.priority-LOW {
+    background-color: #eccfff;
+    color: #694382;
+  }
+
+  &.priority-MEDIUM {
+    background-color: #b3e5fc;
+    color: #23547b;
+  }
+
+  &.priority-HIGH {
+    background-color: #ffcdd2;
+    color: #c63737;
+  }
+}
+
+
+.cdk-overlay-backdrop.cdk-overlay-backdrop-showing {
+  &.dark-backdrop {
+    background: #000;
+    opacity: 0.85 !important;
+  }
+}
+
+
+
+
+.alert{
+  position: relative;
+  padding: 1rem 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+}
+.alert-notification {
+  color: black;
+  background-color: white;
+  border-color: white;
+}
+.alert-danger {
+  color: #842029;
+  background-color: #f8d7da;
+  border-color: #f5c2c7;
+}
+.alert-success {
+  color: #0f5132;
+  background-color: #d1e7dd;
+  border-color: #badbcc;
+}
+
+.alert-light {
+    color: #636464;
+    background-color: #fefefe;
+    border-color: #fdfdfe;
+}
+.alert-info {
+    color: #055160;
+    background-color: #cff4fc;
+    border-color: #b6effb;
+}
+.alert-warning {
+  color: #664d03;
+  background-color: #fff3cd;
+  border-color: #ffecb5;
+}
+
+.mat-snack-bar-container {
+  margin-top: 60px !important;
+ }

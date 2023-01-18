@@ -1,0 +1,18 @@
+<app-back-navigation [path]='path'></app-back-navigation>
+
+<mat-tab-group mat-align-tabs="start">
+  <mat-tab label="Access Model">
+    <app-response-format [visible]="'model'"></app-response-format>
+
+  </mat-tab>
+  <mat-tab label="Access Images">
+    <app-response-format [visible]="'image'"></app-response-format>
+
+  </mat-tab>
+  <ng-container *ngIf="project$ | async as project">
+    <mat-tab label="Download Model" *ngIf="project.hasProjectPermission()">
+      <app-download-model></app-download-model>
+    </mat-tab>
+  </ng-container>
+
+</mat-tab-group>

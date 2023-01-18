@@ -1,0 +1,22 @@
+<mat-card class="my-card mat-elevation-z0">
+  <mat-card-header>
+    <div class="title">Project Images
+      <div class="float-right">
+        <button mat-stroked-button color="primary" *ngIf="project.hasProjectPermission()" (click)="openImageUpload()" class="mr-2">Add Images</button>
+        <button mat-stroked-button color="primary" *ngIf="imageList.length;" (click)="openDialog()">view all</button>
+      </div>
+    </div>
+  </mat-card-header>
+  <mat-card-content>
+    <ng-container *ngIf="imageList.length;else noImages">
+      <app-image-list #list1 [images]="imageList"
+      [isExcerpt]="true"
+    *ngIf="imageList"></app-image-list>
+    </ng-container>
+
+    <ng-template #noImages>
+      <div class="no-items-found">No images found</div>
+
+    </ng-template>
+  </mat-card-content>
+</mat-card>

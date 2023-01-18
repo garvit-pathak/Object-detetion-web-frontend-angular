@@ -1,0 +1,17 @@
+<div class="uploadfilecontainer" (click)="fileInput.click()" appDragDrop (onFileDropped)="uploadFile($event)">
+
+  <input hidden type="file" [multiple]="multiple" accept=".jpg"
+   maxFileSize="100000000" #fileInput (change)="uploadFile($event.target.files)">
+
+   <div class="upload-text">
+    Drag & Drop images or click to upload
+  </div>
+</div>
+<div class="file-list-container">
+  <div  class="files-list" *ngFor="let file of files | async;let i= index">
+    <div class="filename"> {{ file.name }} </div>
+    <button (click)="deleteAttachment(i)" class="delete-file" color="warn" mat-icon-button aria-label="upload images">
+      <mat-icon>delete</mat-icon>
+    </button>
+ </div>
+</div>

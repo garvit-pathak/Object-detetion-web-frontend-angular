@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>Project images</h1>
+<mat-dialog-content #content>
+  <div class="row">
+    <div class="col">
+      <ng-container *ngIf="imageList.length;else noImages">
+        <app-image-list #list1 [images]="imageList" [selectable]="data.deletePermission"
+        [showPaginator]="true"  [isExcerpt]="false"
+        [imageCount]="imagesCount"
+        (pageChange)="onPageChange($event)"
+        (selectedImages)="onSelectedImages($event)" *ngIf="imageList"></app-image-list>
+      </ng-container>
+      <ng-template #noImages>
+        <div class="no-items-found">No images found</div>
+
+      </ng-template>
+
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="closeDialog()">Close</button>
+  <button mat-raised-button color="warn" (click)="openDeleteDialog()" *ngIf="data.deletePermission" [disabled]="isDisable()" cdkFocusInitial>Delete</button>
+</mat-dialog-actions>

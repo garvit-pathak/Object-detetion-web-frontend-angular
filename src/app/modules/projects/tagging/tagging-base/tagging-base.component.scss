@@ -1,0 +1,36 @@
+// app-training-image-list{
+//   height: calc(100vh - 64px);
+// }
+.right-sidebar{
+  min-width: 250px;
+}
+.head {
+  
+  background: #e5ebfb;
+
+  box-shadow: 1px 1px 3px 1px darkgrey;
+  height: 52px;
+  margin-top: 16px;
+  width: 99.5%;
+  margin-left: 7px;
+  margin-bottom: 21px;
+
+  .mat-title {
+    display: block;
+    color: var(--color-primary);
+    margin-left:  39.5px;;
+    padding-top: 10px;
+    font-family: "Nunito-Regular";
+    font-size: 22px;
+  }
+}
+
+.action-section{
+  cursor: pointer;
+  font-size: 12px;
+  // color: var(--color-primary);
+}
+// app-color-label-list{
+//   max-height:75vh;
+//   overflow-y: auto;
+// }

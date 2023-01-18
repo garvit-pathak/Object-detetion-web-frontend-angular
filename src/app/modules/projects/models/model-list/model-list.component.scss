@@ -1,0 +1,45 @@
+@import 'card';
+
+::ng-deep .model-list-card {
+  width: 100%;
+  max-width: 812px;
+  margin: 0 auto;
+ 
+}
+@media only screen and (min-width: 1020px) {
+
+  .model-list-card{
+    width: 528px;
+
+  }
+
+}
+@media (max-width: 1538px){
+  .model-list-card{
+    width: 377px;
+
+  }
+
+}
+.my-card{
+  mat-card-header{
+    .title{
+      font-family: "Poppins-SemiBold";
+        font-size: 19.3px;
+        color: #1f2d7e;
+    }
+
+  }
+}
+
+.button-div{
+  height: 100px;
+}
+.action-button{
+  width: 200px;
+  height: 50px;
+  text-transform: uppercase ;
+  // letter-spacing: 0.4em;
+  font-size: 1.4em;
+  // font-weight: 600;
+}

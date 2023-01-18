@@ -1,0 +1,115 @@
+@import 'card' ;
+mat-card{
+  max-width: 769px;
+  // width: 80%;
+  // height: 100px;
+  // max-width: 160px;
+  // width: 155px;
+  // text-align: center;
+  // margin-top: -326px;
+  // height: 260px !important;
+  // margin-left: 44px;
+ 
+  border-radius: 5px;
+  mat-card-header{
+    .title{
+      font-family: "Poppins-SemiBold"; font-size: 19.3px;    color: #1f2d7e;
+    }
+  }
+  mat-card-content{
+    .content{
+      display: flex;
+      flex-direction: row wrap;
+      justify-content: space-around;
+    }
+    .icon{
+
+      font-size: 25px;
+    }
+    .icon-pending{
+      color: red;
+    }
+    .icon-running{
+      color: green;
+    }
+    .feature{
+      text-align: center;
+      .feature-text{
+        font-size: 12px;
+      }
+      .feature-count{
+        font-size: 22px;
+      }
+    }
+
+  }
+}
+div {
+  column-gap: 20px;
+}
+.normal-card{
+  border-radius: 5px;
+  box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+  height: 22.7rem;
+
+}
+.second-card{
+ box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+  // height: 369px;
+  width: 528px;
+  background: #e5ebfb;
+  // width: 48%;
+  // box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+}
+
+// mat-card{
+//   // width: 80%;
+//   // height: 100px;
+//   max-width: 160px;
+//   width: 155px;
+//   text-align: center;
+  
+//   mat-card-subtitle {
+//     font-size: 13px;
+//   }
+//   mat-card-content{
+//     .content{
+//       display: flex;
+//       flex-direction: row wrap;
+//       justify-content: space-around;
+//     }
+//     .icon{
+
+//       font-size: 25px;
+//     }
+//     .icon-pending{
+//       color: red;
+//     }
+//     .icon-running{
+//       color: green;
+//     }
+//     .feature{
+//       text-align: center;
+//       .feature-text{
+//         font-size: 11px;
+//       }
+//       .feature-count{
+//         font-size: 22px;
+//       }
+//     }
+
+//   }
+// }
+
+
+@media (max-width: 1538px){
+  .second-card{
+  width: 377px;
+
+  }
+}
+@media (max-width:768px) {
+  .normal-card{
+   height: 37rem !important;
+  }
+}

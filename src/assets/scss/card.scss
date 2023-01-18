@@ -1,0 +1,51 @@
+:host ::ng-deep .my-card{
+  .mat-card-header{
+    display: flex ;
+    flex-direction: column;
+
+    .title{
+    flex-basis: 100%;
+
+      margin: auto 0;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      color: #202124;
+      font-family: "Google Sans",Roboto,Arial,sans-serif;
+      font-weight: 400;
+      letter-spacing: 0;
+      font-size: 1.125rem;
+      line-height: 1.5rem;
+      color: inherit;
+      line-height: 40px;
+      width: 100%;
+      user-select: none;
+      margin: 0;
+    }
+
+    .subtitle{
+      flex-basis: 100%;
+    }
+    .mat-card-header-text{
+      margin: 0px;
+    }
+
+  }
+
+
+  height: 100%;
+}
+
+.no-items-found{
+  margin-top: 16px;
+  font-size: 14px;
+  font-weight: 400;
+  display: flex;
+  color: #7b6464;
+  justify-content: center;
+
+}
+
+.action-icon{
+  cursor: pointer;
+}

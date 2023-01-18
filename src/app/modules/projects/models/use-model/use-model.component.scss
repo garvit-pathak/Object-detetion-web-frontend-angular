@@ -1,0 +1,119 @@
+@import 'card' ;
+.my-card{
+  min-width: 220px;
+  justify-content: center;
+  .mat-card-content {
+    text-align: center;
+  }
+}
+
+mat-form-field{
+  width: 100%;
+}
+
+.api {
+  text-decoration: underline;
+}
+
+::ng-deep   .canvas-container{
+  margin-top: 20px!important;
+}
+.canvas-area {
+  height: 430px;
+  .lower-canvas{
+  top: 37px !important;
+  width: 38.7rem !important;
+    box-shadow: 0px 0px 3px 1px grey;
+    height: 377px !important;
+    margin-top: -56px;
+    border-radius: 0px 0px 5px 5px;
+
+  }
+}
+.head {
+  
+  background: #e5ebfb;
+
+  box-shadow: 1px 1px 3px 1px darkgrey;
+  height: 52px;
+  margin-top: 16px;
+  width: 99.5%;
+  margin-left: 7px;
+  // margin-bottom: 21px;
+
+  .mat-title {
+    display: block;
+    color: var(--color-primary);
+    margin-left:  39.5px;;
+    padding-top: 10px;
+    font-family: "Nunito-Regular";
+    font-size: 22px;
+  }
+}
+.action-icon{
+  cursor: pointer;
+  color: #6a6a6a;
+}
+.action-icon-arrow{
+  cursor: pointer ;
+  color: #6a6a6a;
+  // position: absolute;
+  // margin-top: -188px;
+}
+.action-icon-arrow:hover{
+  // background: rgb(237, 235, 235) ;
+  border-radius: 50%;
+  color: black;
+  box-shadow: 0px 0px 3px 0px black;
+}
+
+// .my-canvas-container{
+//   min-width: 400px;
+//   min-height: 300px;
+//   width: 60%;
+//   height: 40%;
+// }
+
+.card-container {
+  /*  not needed styles to reflect it */ 
+  background: white;
+  padding: 10px;
+  color: black;
+  width: 74.8%;
+  align-items: center;
+  /* needed styles below */
+  display: flex;
+  // justify-content: space-between;
+  
+  position: relative;
+  box-shadow: 0px 2px 4px 1px grey;
+
+}
+.response{
+
+      color: #3f51b5;
+    
+}
+
+@media (max-width:1889px) {
+  .canvas-area {
+    .lower-canvas{
+ 
+    width: 38.1rem !important;
+
+    }
+  }
+}
+@media (max-width:1536px) {
+  .canvas-area {
+    .lower-canvas{
+ 
+    width: 29.5rem !important;
+
+    }
+  }
+  .g{
+    margin-right: 28px;
+
+  }
+}

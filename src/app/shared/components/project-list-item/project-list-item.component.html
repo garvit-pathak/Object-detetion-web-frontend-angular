@@ -1,0 +1,11 @@
+<mat-list-item>
+  <mat-icon class="folder role-{{project.role_name}}" mat-list-icon>folder</mat-icon>
+  <a matLine [routerLink]="['/projects',project.project_id]" style="color:black;max-width: 80%;word-break: break-all;"> {{project.project_name}} </a>
+
+  <mat-icon color="warn" *ngIf="hasPermission()" class="float-right action-icon" (click)="openDeleteDialog(project.project_id)">delete</mat-icon>
+  <p matLine>
+    <span class="role role-{{project.role_name}}" > {{project.role_name}} </span>
+    <!-- <span class="demo-2"> -- {{message.desc}} </span> -->
+  </p>
+  <!-- <mat-divider></mat-divider> -->
+</mat-list-item>

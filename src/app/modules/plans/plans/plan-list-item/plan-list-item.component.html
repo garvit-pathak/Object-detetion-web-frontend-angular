@@ -1,0 +1,66 @@
+<!--PRICE CONTENT START-->
+<div class="generic_content  clearfix mat-elevation-z3" [class.active]="isActive">
+
+  <!--HEAD PRICE DETAIL START-->
+  <div class="generic_head_price clearfix">
+
+    <!--HEAD CONTENT START-->
+    <div class="generic_head_content clearfix">
+
+      <!--HEAD START-->
+      <div class="head_bg"></div>
+      <div class="head">
+        <span>{{plan.name}}</span>
+      </div>
+      <!--//HEAD END-->
+
+    </div>
+    <!--//HEAD CONTENT END-->
+
+    <!--PRICE START-->
+    <div class="generic_price_tag clearfix">
+      <span class="price">
+        <span class="sign">Rs.</span>
+        <span class="currency">{{plan.price}}</span>
+        <span class="cent">.00</span>
+        <span class="month">/MON</span>
+      </span>
+    </div>
+    <!--//PRICE END-->
+
+  </div>
+  <!--//HEAD PRICE DETAIL END-->
+
+  <!--FEATURE LIST START-->
+  <div class="generic_feature_list">
+    <ul>
+      <li><span>{{plan.model_training}}</span> Model training</li>
+      <li><span>{{plan.model_download_count}}</span> Model Download</li>
+      <li><span>{{plan.number_of_users}}</span> Number of users</li>
+      <li><span>{{plan.hits}}</span> Hits</li>
+      <li><span>{{plan.storage}}GB</span> Storage</li>
+      <!-- <li><span>{{plan.}}</span> Support</li> -->
+    </ul>
+  </div>
+  <!--//FEATURE LIST END-->
+
+  <!--BUTTON START-->
+  <div class="generic_price_btn clearfix">
+
+    <ng-container *ngIf="isActive; else notActive">
+      <button mat-raised-button color="primary" *ngIf="isActive && !_productAdded && visibleAddToCard;" [disabled]="basePlanAdded" (click)="add()" class="text-uppercase" >add to cart</button>
+      <button mat-raised-button color="primary"  *ngIf="isActive && _productAdded"   (click)="remove()" class="text-uppercase" >remove from cart</button>
+
+    </ng-container>
+
+    <ng-template #notActive>
+
+      <button mat-stroked-button color="primary"  *ngIf="!isActive && !_productAdded && visibleAddToCard;"  [disabled]="basePlanAdded" (click)="add()" class="text-uppercase" >add to cart</button>
+      <button mat-stroked-button color="primary"  *ngIf="!isActive && _productAdded"   (click)="remove()" class="text-uppercase" >remove from cart</button>
+    </ng-template>
+
+  </div>
+  <!--//BUTTON END-->
+
+</div>
+<!--//PRICE CONTENT END-->

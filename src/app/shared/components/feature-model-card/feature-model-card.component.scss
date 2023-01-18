@@ -1,0 +1,38 @@
+mat-card{
+  // width: 80%;
+  max-width: 160px;
+  // height: 100px;
+  text-align: center;
+  width: 155px;
+  
+  mat-card-subtitle {
+    font-size: 13px;
+  }
+  mat-card-content{
+    .content{
+      display: flex;
+      flex-direction: row wrap;
+      justify-content: space-around;
+    }
+    .icon{
+
+      font-size: 25px;
+    }
+    .icon-pending{
+      color: red;
+    }
+    .icon-running{
+      color: green;
+    }
+    .feature{
+      text-align: center;
+      .feature-text{
+        font-size: 12px;
+      }
+      .feature-count{
+        font-size: 22px;
+      }
+    }
+
+  }
+}

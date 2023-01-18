@@ -1,0 +1,14 @@
+<ng-container *ngIf="model$ | async as model">
+  <div >
+    <div class="heading">
+      Download model
+    </div>
+    <div class="content">
+      <a [href]="model.downloadUrl(authService.getJwtToken())" class="download-link">
+        <button mat-raised-button color="primary">Download model</button>
+       </a>
+    </div>
+  </div>
+
+
+</ng-container>

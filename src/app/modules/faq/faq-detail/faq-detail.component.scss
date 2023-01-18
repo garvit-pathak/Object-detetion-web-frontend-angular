@@ -1,0 +1,33 @@
+@media only screen and (min-width: 736px) {
+  article {
+    margin: -86px 10px 42px 10px;
+    padding: 70px 90px;
+  }
+}
+
+:host ::ng-deep .article {
+  background: #FFF;
+  padding: 24px 20px;
+  margin: -50px 10px 42px 10px;
+  border-radius: 10px;
+}
+
+@media only screen and (min-width: 736px)
+{
+  .article header .title {
+    display: flex;
+    flex-wrap: wrap;
+}
+}
+
+.content {
+  overflow: auto;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.wrapper {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 940px;
+}

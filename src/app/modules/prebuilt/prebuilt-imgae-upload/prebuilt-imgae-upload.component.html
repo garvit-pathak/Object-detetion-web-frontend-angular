@@ -1,0 +1,22 @@
+<div >
+  <div style="margin:8px auto 8px 16px;">
+    <button mat-button color="primary" routerLink="/ready-to-use">
+      <mat-icon>arrow_left</mat-icon>
+      Go back
+    </button>
+  </div>
+  <mat-divider></mat-divider>
+</div>
+
+<div #uploadContainer class="d-flex flex-column justify-content-center align-items-center ">
+  <div class="flex-fill" style="width:70vw;">
+    <app-image-upload [multiple]="true" (files)="onFiles($event)"></app-image-upload>
+  </div>
+  <div class="mt-2" style="width:70vw;">
+    <div class="upload-btn-container">
+      <button mat-stroked-button color="primary" class="ml-3 upload-btn" [disabled]="files.length === 0" (click)="uploadImages()">Upload Images</button>
+
+
+    </div>
+  </div>
+</div>

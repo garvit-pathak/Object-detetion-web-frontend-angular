@@ -1,0 +1,93 @@
+@import '_home';
+
+.app-features {
+   .feature-single {
+    margin-left: 0;
+    margin-bottom: 20px;
+    padding: 0;
+    p {
+      font-size: 14px;
+      color: rgb(129, 129, 152);
+      line-height: 1.4;
+      max-width: 240px;
+      margin: 0 auto !important;
+      margin: 10px 0 0 0;
+    }
+    h1 {
+      font-size: 21px;
+      font-weight: 500;
+      color: #364655;
+      margin: 0 0 10px 0;
+      letter-spacing: 0;
+    }
+  }
+
+  .features-img {
+    margin: 0 auto;
+    margin-top: 100px;
+  }
+
+
+  .features-left,
+  .features-right {
+    padding: 50px 0 0 0;
+  }
+
+  .icon {
+    margin-top: 10px;
+    margin-bottom: 20px;
+
+
+    // height:65px;
+    .mat-icon, img {
+      width: 60px;
+      height: 60px;
+      margin-top: 25px;
+    }
+  }
+}
+
+@media only screen and (min-width: 240px) {
+  .feature-single {
+    padding: 6em 0;
+  }
+}
+
+
+
+@media only screen and (min-width: 240px) and (min-width: 767px) {
+  .app-features {
+    h1 {
+      font-size: 24px;
+    }
+    p {
+      // font-size: 16px;
+    }
+  }
+}
+
+
+
+
+@media only screen and (min-width: 240px) and (min-width: 801px) {
+  .app-features {
+    .left-2 {
+      order: 2;
+    }
+    .col-md-12 {
+      order: 1;
+    }
+  }
+}
+
+
+.app-features .features-img {
+  margin: 0 auto;
+  margin-top: 100px;
+  // object-fit: contain;
+
+}
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}

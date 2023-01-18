@@ -1,0 +1,8 @@
+<div class="category my-2 mx-2">
+  <a [routerLink]="item.slug" class="card">
+  <span class="material-icons icon">{{ item.icon }}</span>
+
+      <h2>{{ item.title | titlecase }}</h2>
+      <p class="description">{{ item.description }}</p>
+  </a>
+</div>

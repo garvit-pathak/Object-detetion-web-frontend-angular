@@ -1,0 +1,45 @@
+.example-card{
+    margin: 20px;
+}
+  .wrapper {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    align-items: end;
+    grid-auto-rows: 250px;
+    
+  }
+  .box1 {
+    align-self: stretch;
+    
+  }
+  .box2 {
+    align-self: start;
+    margin-right: 15px;
+  }
+
+// .wrapper {
+//     display: grid;
+//     grid-template-columns: repeat(auto-fill);
+//   }
+.head {
+  
+  background: #e5ebfb;
+  margin-left: -3px;
+  box-shadow: 1px 1px 3px 1px darkgrey;
+
+  height: 52px;
+  margin-top: 16px;
+  width: 100%;
+    margin-left: 4px;
+  margin-bottom: 6px;
+
+  .mat-title {
+    display: block;
+    color: var(--color-primary);
+    margin-left: 34.5px;
+
+    padding-top: 10px;
+    font-family: "Nunito-Regular";
+    font-size: 22px;
+  }
+}

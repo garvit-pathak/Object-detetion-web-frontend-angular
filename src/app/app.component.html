@@ -1,0 +1,24 @@
+<ng-container *ngIf="loggedIn; else notLoggedIn">
+  <app-navigation>
+    <!-- <app-notification-banner></app-notification-banner> -->
+
+    <router-outlet></router-outlet>
+    <div class="product-info">
+      Product by <span>XALT</span>
+    </div>
+  </app-navigation>
+</ng-container>
+
+<ng-template #notLoggedIn>
+
+  <div class="d-flex flex-column">
+    <app-top-nav></app-top-nav>
+    <!-- <div style="margin-top: 8px;"></div> -->
+
+    <router-outlet></router-outlet>
+    <div class="product-info">
+      Product by <span>XALT</span>
+    </div>
+  </div>
+
+</ng-template>

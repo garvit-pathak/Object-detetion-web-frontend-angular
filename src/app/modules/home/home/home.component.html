@@ -1,0 +1,80 @@
+<app-main-heading></app-main-heading>             <!-- app-modules-home-main heading -->
+<app-xtract-works></app-xtract-works>             <!-- app-modules-home-xtract works -->
+<app-xtract-usecases></app-xtract-usecases>       <!-- app-modules-home-xtract usecases -->
+<app-prebuilt-carousal></app-prebuilt-carousal>   <!-- app-modules-home-prebuild carousal -->
+
+<!-- ways to use xtract -->
+<div class="outer-section outer-section-background my-sm-3 my-md-5">
+  <div class="container-md">
+    <div class="row">
+      <div class="col-lg-6 offset-lg-3">
+        <div class="features-intro text-center my-3">
+          <h1 class="heading">Ways to use Xtract</h1>
+          <p class="sub-heading">Xtract provides you multiple ways to its customers.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-md">
+    <div class="row">
+      <div class="col-4">
+        <div class="feature-single" style="width: 80%;text-align: center;margin: 0 auto;">
+          <div class="d-flex features-icons-icon">
+            <span style="font-size: 60px;"
+              class=" material-icons  m-auto icon-large" data-bs-hover-animate="pulse">api</span>
+          </div>
+          <h3 class="heading">Using API</h3>
+          <p class="sub-heading">Xtract API’s allows to integrate the models available on the platform with any other
+            application leaving the infrastructure and computation hassle to us.</p>
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div class="feature-single" style="width: 80%;text-align: center;margin: 0 auto;">
+          <div class="d-flex features-icons-icon">
+            <span style="font-size: 60px;"
+              class=" material-icons  m-auto icon-large" data-bs-hover-animate="pulse">computer</span>
+          </div>
+          <h3>On Platform</h3>
+          <p>Xtract platform allows user to extract information from the images using model and access it on the
+            platform anytime anywhere.</p>
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div class="feature-single" style="width: 80%;text-align: center;margin: 0 auto;">
+          <div class="d-flex features-icons-icon">
+            <span class=" material-icons m-auto icon-large" style="font-size: 60px;"
+              data-bs-hover-animate="pulse">cloud_download</span>
+          </div>
+          <h3>Download model</h3>
+          <p>Xtract allows the user to download the AI model and integrate it with any outside system and compatible
+            hardware.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="outer-section ">
+  <section>
+    <div class="container" *ngIf="plans$ | async as plans">
+      <div class="row">
+        <div class="col-md-12 text-center my-3">
+          <h1 class="heading">Xtract Pricing</h1>
+          <p class="sub-heading">Get the best value at every stage of your Xtract journey</p>
+        </div>
+        <ng-container *ngFor="let plan of  plans | planFilter:{plan_type:'BP'}  ">
+          <div class=" col-sm-6 col-md-4 mt-2">
+            <app-plan-list-item [plan]="plan" [visibleAddToCard]="false"></app-plan-list-item>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </section>
+</div>
+
+<app-contact-us-form></app-contact-us-form>                <!-- app-modules-home-contact us form -->
+<!-- <app-live-active-users></app-live-active-users> -->
+<app-homepage-footer></app-homepage-footer>                <!-- app-modules-home-homepage footer -->

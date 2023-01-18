@@ -1,0 +1,17 @@
+<app-faq-header></app-faq-header>
+
+<div class="wrapper" *ngIf="faq$ | async as faq ">
+  <div class="article">
+    <header>
+      <div class="title">
+        <h1 [innerHTML]="faq.question | safeHtml"></h1>
+    </div>
+    </header>
+    <div class="content">
+
+
+      <div *ngIf="faq " [innerHTML]="faq.answer | safeHtml">
+      </div>
+    </div>
+  </div>
+</div>

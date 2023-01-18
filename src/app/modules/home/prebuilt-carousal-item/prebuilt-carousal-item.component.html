@@ -1,0 +1,18 @@
+<mat-card class="example-card" style="width:100%; display:inline-block;">
+  <!-- <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Shiba Inu</mat-card-title>
+    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+  </mat-card-header> -->
+  <img style="height:220px" mat-card-image [src]="item.prebuilt_image[0].name" alt="Photo of a Shiba Inu">
+  <mat-card-content>
+    <h3 class="text-center font-weight-normal">{{item.name}}</h3>
+    <p class="model-description">
+      {{item.description}}
+    </p>
+  </mat-card-content>
+  <!-- <mat-card-actions>
+    <button mat-button>LIKE</button>
+    <button mat-button>SHARE</button>
+  </mat-card-actions> -->
+</mat-card>

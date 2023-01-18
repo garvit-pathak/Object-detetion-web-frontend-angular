@@ -1,0 +1,10 @@
+<div class="d-flex flex-column">
+  <app-project-detail [project]="project" *ngIf="project" class="p-2 project-child" ></app-project-detail>
+</div>
+<div class="d-flex flex-row  flex-wrap" style="padding: 38px;padding-top: 0px;">
+  <app-process-counts class="p-2 process-child" [isDashboard]="false" [isSequential]="project.is_sequential" [projectId]="project.project_id" *ngIf="project"></app-process-counts>
+  <app-model-list [project]="project" [modelList]="modelList" *ngIf="project" class="p-2 model-list"></app-model-list>
+  <app-project-image-list class="p-2 image-list" [project]="project" (modelUpdate)="onModelUpdate($event)" *ngIf="project"></app-project-image-list>
+</div>
+<div class="d-flex flex-row justify-content-center">
+</div>

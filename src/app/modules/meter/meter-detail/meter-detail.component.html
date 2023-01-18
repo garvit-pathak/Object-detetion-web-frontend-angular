@@ -1,0 +1,150 @@
+<mat-card class="my-card" *ngIf="!meterType" [@inOutAnimation]>
+  <mat-card-title>
+    Select a pipeline
+  </mat-card-title>
+  <mat-card-subtitle>
+    To see meter models description
+  </mat-card-subtitle>
+  <mat-card-content>
+    Extract meter reading and meter number from our platform
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="my-card" *ngIf="meterType == 'A'" [@inOutAnimation]>
+  <mat-card-header>
+    <!-- <div mat-card-avatar class="example-header-image"></div> -->
+    <mat-card-title>Type A</mat-card-title>
+    <mat-card-subtitle>Meter Reading without cropping model directly on original image</mat-card-subtitle>
+  </mat-card-header>
+  <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+  <mat-card-content>
+
+
+      To extract Meter Reading:
+
+      <ul>
+        <li>When meter reading digits are large enough in resolution such that they are more visually
+          distinguished from each other as well as a proper bounding box can be drawn over the digits with minimal
+          overlapping of visual region of other digits.</li>
+      </ul>
+    <h4 class="font-weight-bold m-0">If you want to run custom model, then select only one model</h4>
+  </mat-card-content>
+
+</mat-card>
+<mat-card class="my-card" *ngIf="meterType == 'B'" [@inOutAnimation]>
+  <mat-card-header>
+    <!-- <div mat-card-avatar class="example-header-image"></div> -->
+    <mat-card-title>Type B</mat-card-title>
+    <mat-card-subtitle>Meter Reading and Meter Number</mat-card-subtitle>
+  </mat-card-header>
+  <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+  <mat-card-content>
+
+      To extract Meter Reading and Meter Number:
+      <ul>
+        <li>Meter Number is usually denoted in a smaller size as compared to other visual text elements present in the meter
+          images and thus, we typically filter the region representing the whole meter number as whole followed by
+          recognition of digits in filtered region.</li>
+        <li>When meter reading digits are large enough in resolution such that they are more visually
+          distinguished from each other as well as a proper bounding box can be drawn over the digits with minimal
+          overlapping of visual region of other digits.</li>
+      </ul>
+
+
+    <h4 class="font-weight-bold m-0"> If you want to run custom model, select models sequentially</h4>
+    <mat-list dense>
+      <div mat-subheader>Meter Number</div>
+      <mat-list-item>
+        <mat-icon mat-list-icon>memory</mat-icon>
+        <div mat-line>Box Detection</div>
+
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon mat-list-icon>memory</mat-icon>
+
+        <div mat-line>Digit Detection</div>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <div mat-subheader>Meter Reading</div>
+      <mat-list-item>
+        <mat-icon mat-list-icon>memory</mat-icon>
+        <div mat-line>Without Cropping directly on the original image</div>
+
+      </mat-list-item>
+
+    </mat-list>
+    <mat-hint>If sequence is not proper, no result will be visible</mat-hint>
+  </mat-card-content>
+
+</mat-card>
+<mat-card class="my-card" *ngIf="meterType == 'C'" [@inOutAnimation]>
+  <mat-card-header>
+    <!-- <div mat-card-avatar class="example-header-image"></div> -->
+    <mat-card-title>Type C</mat-card-title>
+    <mat-card-subtitle>Meter Reading and Meter Number</mat-card-subtitle>
+  </mat-card-header>
+  <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+  <mat-card-content>
+    To extract Meter Reading and Meter Number:
+    <ul>
+      <li>
+        Meter Number is usually denoted in a smaller size as compared to other visual text elements present in the meter
+        images and thus, we typically filter the region representing the whole meter number as whole followed by
+        recognition of digits in filtered region.
+      </li>
+      <li>
+        When meter reading digits are not large enough in resolution such that they are more visually
+        distinguished from each other or a proper bounding box can’t be drawn over the digits with minimal overlapping of
+        visual region of other digits then we can filter out the region having Meter reading and then apply digit
+        recognition model for a successful recognition.
+      </li>
+    </ul>
+
+
+
+
+    <h4 class="font-weight-bold m-0">If you want to run custom model, select models sequentially</h4>
+    <mat-list dense>
+      <div mat-subheader>Meter Number</div>
+      <mat-list-item>
+        <mat-icon mat-list-icon>memory</mat-icon>
+        <div mat-line>Box Detection</div>
+
+      </mat-list-item>
+
+      <mat-list-item>
+        <mat-icon mat-list-icon>memory</mat-icon>
+
+        <div mat-line>Digit Detection</div>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <div mat-subheader>Meter Reading</div>
+      <mat-list-item>
+        <mat-icon mat-list-icon>memory</mat-icon>
+        <div mat-line>Box Detection</div>
+
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon mat-list-icon>memory</mat-icon>
+
+        <div mat-line>Digit Detection</div>
+      </mat-list-item>
+    </mat-list>
+    <!-- <ol>
+      <li>
+        model 1 type:	Box Detection
+      </li>
+      <li>
+        model 1 type:	Digit recognition
+      </li>
+      <li>
+        model 1 type: Box Detection
+      </li>
+      <li>
+        model 1 type:	Digit recognition
+      </li>
+    </ol> -->
+    <mat-hint>If sequence is not proper, no result will be visible</mat-hint>
+  </mat-card-content>
+
+</mat-card>

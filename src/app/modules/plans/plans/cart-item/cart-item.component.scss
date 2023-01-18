@@ -1,0 +1,27 @@
+
+
+.cart-item{
+  display: grid;
+  grid-template-columns: 0.7fr 1fr 2fr 1fr 1fr;
+  height: 120px;
+  vertical-align: middle;
+  grid-template-areas: "buttons name quantity effective-from total-price";
+  align-items: center;
+  text-align: center;
+  .quantity {
+    grid-area: quantity;
+    // padding-top: 20px;
+    // margin-right: 60px;
+    input {
+      -webkit-appearance: none;
+      border: none;
+      text-align: center;
+      width: 32px;
+      font-size: 16px;
+      color: #43484D;
+      font-weight: 300;
+    }
+  }
+
+
+}

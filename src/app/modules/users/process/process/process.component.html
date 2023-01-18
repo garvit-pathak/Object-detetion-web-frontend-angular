@@ -1,0 +1,20 @@
+<mat-card class="my-card">
+  <mat-card-header>
+    <div class="mat-card-title">All Processes
+      <div class="d" style="float: right;    margin-top: -16px;">
+
+        <app-back-navigation ></app-back-navigation>
+      </div>
+    </div>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-tab-group color="warn">
+      <mat-tab label="Training Process">
+        <app-training-process [trainingProcess]="trainingProcess" [trainingProcessCount]="trainingProcessCount" (pageChange)="onPageChange($event)"></app-training-process>
+      </mat-tab>
+      <mat-tab label="Production Process">
+        <app-production-process [productionProcess]="productionProcess" [productionProcessCount]="productionProcessCount" (productionPageChange)="onProductionPageChange($event)"></app-production-process>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card-content>
+</mat-card>

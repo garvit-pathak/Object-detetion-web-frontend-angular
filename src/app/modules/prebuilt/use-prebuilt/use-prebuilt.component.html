@@ -1,0 +1,4 @@
+
+<app-prebuilt-imgae-upload  (imageList)="onImageList($event)" *ngIf="!imageList" ></app-prebuilt-imgae-upload>
+
+<app-prebuilt-canvas [imageList]="imageList"    *ngIf="imageList" (uploadMore)="onUploadMore()"></app-prebuilt-canvas>

@@ -1,0 +1,40 @@
+<div class="head">
+  <h1 class="mat-title">Prebuilt Models</h1>
+  <div class="d" style="float: right;    margin-top: -57px;">
+
+    <app-back-navigation ></app-back-navigation>
+  </div>
+</div>
+<div class="grid-content">
+  <div class="item" *ngFor="let item of list">
+    <mat-card class="prebuilt-card " >
+      <mat-card-header>
+        <!-- <div mat-card-avatar class="example-header-image"></div> -->
+        <mat-card-title class="text-truncate model-name" >{{item.name}}</mat-card-title>
+        <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+      </mat-card-header>
+      <img mat-card-image [src]="getImageUrl(item)" [alt]="item.name" style="height:220px">
+      <mat-card-content>
+        <div class="item-description">
+          <p>
+          <strong>Description: </strong>{{ item.description }}
+
+          </p>
+        </div>
+        <div class="label-container mt-1">
+          <strong>Labels: </strong>
+          <mat-chip-list aria-label="Fish selection" class="label-list">
+            <mat-chip *ngFor="let label of item.public_labels">{{label.name}}</mat-chip>
+          </mat-chip-list>
+        </div>
+
+      </mat-card-content>
+      <!-- <button mat-button color="primary" class="use-model-btn">USE MODEL</button> -->
+
+      <mat-card-actions align="end">
+        <button mat-stroked-button color="primary" [routerLink]="[item.id]" class="use-model-btn">RUN MODEL</button>
+      </mat-card-actions>
+    </mat-card>
+    </div>
+</div>
+

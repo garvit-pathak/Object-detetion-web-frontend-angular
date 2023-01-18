@@ -1,0 +1,93 @@
+:host ::ng-deep .prebuilt-card {
+  width: 100%;
+  display: block;
+  height: 100%;
+  mat-card-content{
+    height: 200px;
+
+  }
+  mat-card-header{
+    .mat-card-header-text{
+      margin: 0px;
+    }
+  }
+}
+.head {
+  
+  background: #e5ebfb;
+  margin-left: -3px;
+  box-shadow: 1px 1px 3px 1px darkgrey;
+
+  height: 52px;
+  margin-top: 16px;
+  width: 100%;
+    margin-left: 4px;
+  margin-bottom: 6px;
+
+  .mat-title {
+    display: block;
+    color: var(--color-primary);
+    margin-left: 34.5px;
+
+    padding-top: 10px;
+    font-family: "Nunito-Regular";
+    font-size: 22px;
+  }
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+  max-height: 200px;
+}
+
+
+:host ::ng-deep .label-container{
+  height: 80px;
+  .label-list{
+    position: relative;
+    overflow-y: auto;
+    height: 100%;
+  }
+  .mat-chip-list-wrapper{
+    overflow-y: auto;
+    height: 100%;
+
+  }
+}
+
+mat-chip{
+  font-size: 12px;
+}
+
+.grid-content{
+  display: grid;
+  padding: 16px;
+  grid-template-columns: repeat(auto-fill,minmax(320px,1fr));
+  column-gap: 20px;
+  row-gap: 20px;
+  grid-auto-rows: minmax(130px, 1fr);
+  margin: auto 50px;
+  .item{
+    .item-description{
+      max-height: 100px;
+      overflow-y: auto;
+    }
+  }
+}
+
+.model-name{
+  width: 300px;
+}
+@media only screen and (max-width: 736px) {
+  .grid-content{
+    grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
+    padding: auto;
+    margin: auto auto;
+
+  }
+
+  .model-name{
+    width: 260px;
+  }
+}

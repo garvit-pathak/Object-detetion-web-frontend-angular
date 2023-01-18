@@ -1,0 +1,30 @@
+<mat-card class="model-overview-card mat-elevation-z0" *ngIf="model">
+  <mat-card-header>
+    <mat-card-title>Model Overview
+      <div class="d" style="float: right;    margin-top: -17px;">
+
+        <app-back-navigation ></app-back-navigation>
+      </div>
+      <!-- <button mat-stroked-button color="primary"  class="float-right" *ngIf="project.hasModelPermission('edit','model')" (click)="openDialog()">Edit</button> -->
+    </mat-card-title>
+    <mat-card-subtitle></mat-card-subtitle>
+</mat-card-header>
+<div *ngIf="model" class="d-flex justify-content-center" style="    margin-top: 38px;font-size: 25px;font-family: 'MazzardM-Bold';color: darkblue">
+
+  {{model.name}}
+        <button style="margin-top: -13px;" mat-icon-button color="primary" *ngIf="project.hasModelPermission('edit','model')" (click)="openDialog()">
+          <mat-icon>edit</mat-icon>
+        </button>
+</div>
+<div class="d-flex justify-content-center " style="    margin-top: 3px;margin-bottom: 17px;font-size: 20px;color: darkgray  ;  padding-right: 48px;">
+  {{model.description}}
+</div>
+<mat-card-content>
+  <div class="d-flex  flex-column align-items-center button-div justify-content-center">
+    <button mat-flat-button color="primary"  (click)="gotoTraining()"  class="action-button m-2">Train Model</button>
+    <button mat-stroked-button color="primary" (click)="gotoUseModel()" class="action-button m-2" >Use Model</button>
+  </div>
+
+
+</mat-card-content>
+</mat-card>

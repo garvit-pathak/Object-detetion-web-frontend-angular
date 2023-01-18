@@ -1,0 +1,30 @@
+.dashboard-overview-card {
+  
+  
+  background: #e5ebfb;
+  margin-left: -3px;
+  box-shadow: 1px 1px 3px 1px darkgrey;
+
+  height: 52px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  .mat-card-header {
+    display: block;
+    color: var(--color-primary);
+    //  border-bottom: .2rem solid #1f2d7e; 
+    
+    margin-left: 21.5px;
+
+    
+    .mat-card-title{
+              font-family: "Nunito-Regular";
+           font-size: 22px;
+    }
+  }}
+.mat-stepper-horizontal {
+  margin-top: 8px;
+}
+
+.mat-form-field {
+  margin-top: 16px;
+}

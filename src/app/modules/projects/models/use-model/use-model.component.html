@@ -1,0 +1,105 @@
+<div class="head">
+  <h1 class="mat-title">Use Model</h1>
+  <div class="d" style="float: right;    margin-top: -57px;">
+
+    <app-back-navigation ></app-back-navigation>
+  </div>
+</div>
+<div class="container-fluid">
+  
+  <div class="d-flex justify-content-end api">
+    <div class="p-2  ">
+      <a [routerLink]="['/projects',projectId,'models',model.id, 'process-history']" *ngIf="projectId && model">
+        Production history</a>
+    </div>
+    <div class="p-2">
+      <a *ngIf="projectId && model" [routerLink]="['/projects',projectId,'models',model.id, 'use-via-api']"> Use Via
+        API</a>
+    </div>
+  </div>
+  <div class="d-flex flex-row" style="    margin-bottom: -47px;">
+    <div class="p-2 w-25 h-100" style="margin-left: 60px;margin-top: 20px"    [ngClass]="(projectId && model && project && project.hasModelPermission('create','production'))?'col-3':'none'">
+      
+      <app-create-production  [projectId]="projectId" [model]="model" (uploaded)="onUploaded($event)" (onchange)="onUploaded($event)"
+        *ngIf="projectId && model && project && project.hasModelPermission('create','production')">
+      </app-create-production>
+    </div>
+    
+    <div style="margin-top: 20px;margin-left: 46px;" class="p-2 w-50 g">
+      <mat-card *ngIf ='checkSequential;else normalPipline' class="card-container">
+        <strong class="response" >Meter Reading: </strong><span> {{meterReading}}</span>
+      </mat-card>
+    <ng-template #normalPipline>
+
+      <mat-card class="card-container">
+        <strong     class="response" style="    width: 450px;font-size: 17px;" >{{detected}}  </strong>
+        <mat-icon class="action-icon-arrow" (click)="onClickPrevious($event)">keyboard_arrow_left</mat-icon>
+          <mat-icon style="margin-left: 20px;margin-right: 22px;" class="action-icon-arrow"  (click)="onClick($event)">keyboard_arrow_right</mat-icon>
+       
+          <mat-icon class="action-icon" (click)="openSliderDialog($event)">settings</mat-icon>
+  
+      </mat-card>
+    </ng-template>
+      <div  #canvasContainer class="my-canvas-container canvas-area">
+        <canvas #canvas id="canvas">
+        
+        </canvas>
+      </div>
+
+      <div class="text-align-center">
+        
+        
+      <!--  class="action-icon" (click)="nextImage($event)" [images]="imageList" [projectId]="projectId" [modelId]="modelId" [model]="model"
+        [imageCount]="imagesCount" -->
+      </div>
+    </div>
+    <div class="p-2 w-25 h-100"  style="margin-left: -160px;" *ngIf ='!checkSequential'>
+      <app-color-label-list  class="p-2" [selectable]="true" (labelSelected)="labelSelected($event)">
+      </app-color-label-list>
+    </div>
+  </div>
+
+  <div class="grid-container"  >
+    
+  </div>
+    
+    
+<br>
+  <div class="row" >
+    <!-- <div
+      [ngClass]="(projectId && model && project && project.hasModelPermission('create','production'))?'col-3':'none'">
+      <app-create-production  [projectId]="projectId" [model]="model" (uploaded)="onUploaded($event)" (onchange)="onUploaded($event)"
+        *ngIf="projectId && model && project && project.hasModelPermission('create','production')">
+      </app-create-production>
+
+    </div> -->
+
+    <div
+      [ngClass]="(projectId && model && project && project.hasModelPermission('create','production'))?'col-12':'col-12'">
+      <mat-card class="my-card mat-elevation-z0">
+        <mat-card-header class="justify-content-between">
+          <div class="title">
+            Processed Images
+
+            <div class="float-right">
+              <button mat-stroked-button [routerLink]="['/projects/',projectId,'models',model.id,'training']"
+                [queryParams]="{isFeedback: true}" *ngIf="projectId && model" color="primary">Tag Feedback
+                Images</button>
+            </div>
+          </div>
+
+        </mat-card-header>
+        <mat-card-content>
+          <div *ngIf="imageAvailable(imageList); else elseMyImages">
+            <app-use-model-image-list #list1 [images]="imageList" [projectId]="projectId" [modelId]="modelId" [model]="model"
+              [imageCount]="imagesCount" (pageChange)="onPageChange($event)" (selectedImage)="onImageChange($event,slide)" 
+              *ngIf="imageList"></app-use-model-image-list>
+          </div>
+          <ng-template #elseMyImages>
+            <div class="no-items-found">No Production Process</div>
+          </ng-template>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

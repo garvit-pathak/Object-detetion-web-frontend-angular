@@ -1,0 +1,23 @@
+.upload-btn{
+  width: 250px;
+  line-height:1.2;
+  font-size: 24px;
+  padding:8px;
+  // margin: 16px;
+  margin-top: 8px;
+  float: right;
+  // background-color: var(--color-accent);
+}
+
+.upload-btn-container{
+  // display: flex;
+  // justify-content: end;
+  // flex-direction: row;
+}
+
+.outer-container{
+  height: 90vh;
+  .row{
+    height: 100%;
+  }
+}

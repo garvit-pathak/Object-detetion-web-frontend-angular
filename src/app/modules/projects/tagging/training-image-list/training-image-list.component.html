@@ -1,0 +1,56 @@
+<div class="d-flex flex-column">
+  <mat-form-field appearance="standard">
+    <!-- <mat-label>Image</mat-label> -->
+    <mat-select [(value)]="dropDownValue" [disabled]="dropDownDisable" (selectionChange)="onSelectionChange($event)"
+
+    >
+      <mat-option value="TI">
+        Training images
+      </mat-option>
+      <mat-option value="FI">
+        Feedback images
+      </mat-option>
+
+    </mat-select>
+  </mat-form-field>
+<div class="image-list">
+
+
+<mat-card  style="padding-top: 0px;    width: 139px; max-height: 88%;
+">
+  <mat-card-content>
+
+<div class="d-flex flex-column justify-content-start">
+  <ng-container *ngIf="imageList?.length != 0; else zeroImages">
+    <ng-container *ngFor="let image of imageList; let i = index">
+      <div class="image-list-item ">
+        <mat-icon *ngIf="!image.is_tagged" class="remove-icon"color="black" matTooltipPosition="above"
+        matTooltip="remove feedback"(click)="handleChange(i)">remove_circle</mat-icon>
+
+        <mat-icon class="tag-icon" *ngIf="image.is_tagged">check_circle</mat-icon>
+        <img   [class.disabled]="image === _currentImage"
+        (click)="!(image === _currentImage) &&  onImageSelect(image)"
+        [ngClass]="{'active-image': image === _currentImage}"[src]="image.name"/>
+      </div>
+    </ng-container>
+    <!-- <button  mat-stroked-button (click)="handleChange(i)" color="primary" >remove</button> -->
+
+  </ng-container>
+
+  <ng-template #zeroImages>
+    <div class="zero-images">No images</div>
+  </ng-template>
+</div>
+
+  </mat-card-content>
+</mat-card>
+
+
+  <!-- <app-tagging-image-list
+  [imageList]="imageList"
+  [currentImage]="currentImage"
+  [changeImage]="changeImage"
+  (imageSelect)="onImageSelect($event)"
+ ></app-tagging-image-list> -->
+</div>
+</div>

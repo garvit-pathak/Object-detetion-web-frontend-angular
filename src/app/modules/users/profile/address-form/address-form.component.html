@@ -1,0 +1,41 @@
+<h1 mat-dialog-title>{{addressContent}}</h1>
+<mat-dialog-content>
+        <form [formGroup]="AddressForm">
+
+                    <mat-form-field appearance="outline" style="margin-right:6px;width:48%;">
+                            <mat-label>Street</mat-label>
+                            <input matInput type="text" formControlName="street" id="street">
+                    </mat-form-field>
+
+                    <!-- Primary Address <input class="example-margin"  style="margin-right:6px" formControlName="is_primary_address" id="is_primary_address" type="checkbox" title="Primary"> -->
+                    <mat-checkbox formControlName="is_primary_address" id="is_primary_address">Primary Address</mat-checkbox>
+                    <br>
+
+                    <mat-form-field appearance="outline" style="margin-right:6px;width:48%">
+                        <mat-label>City *</mat-label>
+                        <input class="input" matInput type="text" formControlName="city" id="city">
+                    </mat-form-field>
+
+
+                    <mat-form-field appearance="outline" style="width: 48%;">
+                        <mat-label>State*</mat-label>
+                        <input class="input" matInput type="text" formControlName="state" id="state">
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field appearance="outline" style="margin-right:6px;width: 48%">
+                        <mat-label>Country</mat-label>
+                        <input class="input" matInput type="text" formControlName="country" id="country">
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" style="width: 48%">
+                            <mat-label>Postal Code</mat-label>
+                            <input matInput type="text" formControlName="postal_code" id="postal_code">
+                    </mat-form-field>
+                <br>
+                <div style="float:right">
+                  <button mat-button mat-dialog-close>Cancel</button>
+                  <button class="button" mat-raised-button color="primary"
+                    (click)="saveAddressInfo()" [disabled]="!AddressForm.valid" >Save </button>
+                </div>
+            </form>
+</mat-dialog-content>

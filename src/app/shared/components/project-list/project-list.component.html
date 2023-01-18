@@ -1,0 +1,50 @@
+
+<mat-card class="project-list-card my-card">
+  <mat-card-header>
+    <div class="title" style="    font-size: 19.3px;    color: #1f2d7e;font-family: Poppins-SemiBold">
+       Projects
+      <div class="float-right">
+        <button mat-flat-button color="primary" (click)="newProject()" > <mat-icon style="font-size: 20px;padding-top: 1px;">addition</mat-icon>project </button>
+      </div>
+    </div>
+
+
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-tab-group color="warn">
+      <mat-tab label="My Projects" style="max-height: 500px;overflow-y: auto;">
+        <ng-container *ngIf="projectAvailable(projectList); else elseMyProjects">
+          <mat-list>
+            <ng-container *ngFor="let project of projectList">
+            <app-project-list-item [project]="project" (delete)="onDelete($event)"></app-project-list-item>
+
+            </ng-container>
+          </mat-list>
+
+
+        </ng-container>
+        <ng-template #elseMyProjects>
+          <div  class="no-items-found">create new project first</div>
+        </ng-template>
+      </mat-tab>
+
+      <mat-tab label="Assigned Projects">
+        <ng-container *ngIf="projectAvailable(assignedProjectList); else elseAssignedProjects">
+
+          <mat-list>
+            <ng-container  *ngFor="let project of assignedProjectList">
+            <app-project-list-item [project]="project" (delete)="onDelete($event)"></app-project-list-item>
+
+            </ng-container>
+          </mat-list>
+        </ng-container>
+        <ng-template #elseAssignedProjects>
+          <div class="no-items-found">create new project first</div>
+        </ng-template>
+
+
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,16 @@
+<mat-card class="dashboard-overview-card  ">
+  <mat-card-header>
+    <mat-card-title> Meter Reading
+      <div class="d" style="float: right;    margin-top: -16px;">
+
+        <app-back-navigation ></app-back-navigation>
+      </div>
+    </mat-card-title>
+  </mat-card-header>
+</mat-card>
+
+<div class="d-flex flex-row">
+  <div class="p-2 w-50"><app-meter-form (images)="onImageChange($event)" (meterChange)="meterDetail.meterType = $event"></app-meter-form></div>
+  <div class="p-2 w-50"><app-meter-detail #meterDetail></app-meter-detail></div>
+</div>
+<app-meter-form-result></app-meter-form-result>

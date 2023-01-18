@@ -1,0 +1,16 @@
+<h2 mat-dialog-title>Task Detail</h2>
+<div mat-dialog-content>
+
+  <div class="d-flex flex-md-column">
+    <h4> <b>Message :</b> {{selectedTask.message}} </h4>
+    <h4> <b>Model :</b> {{selectedTask.model_name}}</h4>
+    <h4><b>Assigned By :</b> {{selectedTask.assigned_by}}</h4>
+    <h4><b>Progress :</b> <mat-progress-bar mode="determinate" [value]=selectedTask.percent_complete></mat-progress-bar></h4>
+    <!-- <app-tagged-untagged-graph [data]="taggedUntaggedData" *ngIf="taggedUntaggedData" ></app-tagged-untagged-graph> -->
+
+  </div>
+</div>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>

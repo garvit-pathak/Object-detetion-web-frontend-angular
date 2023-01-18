@@ -1,0 +1,9 @@
+<h1 mat-dialog-title><mat-icon color="warn">highlight_off</mat-icon> Are you sure?</h1>
+<mat-dialog-content>
+  Do you really want to delete these items? This process cannot be undone.
+</mat-dialog-content>
+<div mat-dialog-actions align="end">
+  <button mat-raised-button color="warn"  [mat-dialog-close]="true" >Delete</button>
+  <button mat-button mat-dialog-close cdkFocusInitial>Cancel</button>
+
+</div>

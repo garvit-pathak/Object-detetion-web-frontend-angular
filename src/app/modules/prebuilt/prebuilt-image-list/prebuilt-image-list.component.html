@@ -1,0 +1,19 @@
+<div class="container-fluid">
+
+  <div class="row m-0  " style="width:120px;max-height: 90vh;overflow-y: auto;">
+    <ng-container
+    *ngFor="let image of imageList; let i = index"
+    >
+    <img  class="col-auto p-2"  [class.disabled]="image === currentImage"
+    (click)="!(image === currentImage) &&  onImageSelect(image)"
+    [ngClass]="{'active-image': image === currentImage}"[src]="image.name"/>
+  </ng-container>
+
+
+
+  </div>
+
+
+
+
+</div>

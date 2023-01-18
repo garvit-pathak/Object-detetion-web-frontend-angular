@@ -1,0 +1,25 @@
+<div class="pl-3 pr-3">
+  <div class="d-flex flex-column " *ngIf="showForm">
+    <div class="flex-grow-1">
+      <form [formGroup]="form" >
+       <p>
+        <mat-form-field appearance="outline">
+          <mat-label>New Label</mat-label>
+          <input matInput formControlName="name">
+          <mat-icon matPrefix>label</mat-icon>
+          <mat-error *ngIf="!form.controls['name'].hasError('available')">Label already exist.</mat-error>
+        </mat-form-field>
+       </p>
+      </form>
+    </div>
+    <div align="end">
+      <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="onSubmit()">Submit</button>
+      <button mat-button (click)="cancelForm()" class="ml-1">Cancel</button>
+    </div>
+  </div>
+  <div class="d-flex justify-content-end" >
+      <button mat-raised-button color="primary" *ngIf="!showForm" (click)="onShowForm()" [disabled]="checkName" >New Label</button> 
+    
+  </div>
+
+</div>

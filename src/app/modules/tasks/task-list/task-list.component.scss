@@ -1,0 +1,78 @@
+@import 'card';
+
+mat-card{
+  height:calc(100% - 56px) !important;
+
+  .mat-card-header {
+   
+    height: 52px;
+    margin-top: 2px ;    margin-bottom: 28px;
+    width: 101.5% !important;
+    display: block;
+    color: #1f2d7e ;
+    margin-left: -12px;
+   
+    
+    background: #e5ebfb;
+   
+    box-shadow: 1px 1px 3px 1px darkgrey;
+
+    // margin-left: 21.5px;
+    .mat-card-title{
+      
+    
+      font-family: "Nunito-Regular";
+      font-size: 22px;
+       }
+  }
+}
+:host ::ng-deep .task-card {
+  // width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 16px;
+  height: unset;
+}
+
+mat-card-content {
+  // max-height:400px
+}
+
+.example-container {
+  max-height: 60vh;
+  overflow: auto;
+}
+
+.my-table {
+  width: 100%
+}
+
+.action-icon {
+  cursor: pointer;
+}
+
+mat-progress-bar {
+  height: 15px;
+  width: 200px;
+}
+
+.example-section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 60px;
+
+  .progress-value {
+    position: absolute;
+    padding: 10px;
+    color: black;
+    font-size: 12px;
+    // font-weight: bold;
+  }
+}
+
+.mat-progress-bar {
+  height: 15px;
+  border-radius:10px ;
+
+}

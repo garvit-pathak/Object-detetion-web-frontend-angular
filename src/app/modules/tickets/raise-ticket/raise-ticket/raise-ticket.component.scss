@@ -1,0 +1,33 @@
+@import 'card' ;
+.overview-card {
+  
+  
+  background: #e5ebfb;
+  margin-left: -11px;
+  box-shadow: 1px 1px 3px 1px darkgrey;
+  width: 101.3%;
+  height: 52px;
+  margin-top: 2px;
+  margin-bottom: 25px;
+  .mat-card-header {
+    display: block;
+    color: var(--color-primary);
+    //  border-bottom: .2rem solid #1f2d7e; 
+    
+    margin-left: 21.5px;
+
+    
+    .mat-card-title{
+      padding-top: 7px;
+      padding-right: 13px;
+              font-family: "Nunito-Regular";
+           font-size: 22px;
+    }
+  }}
+table {
+  width: 100%;
+}
+mat-card{
+  height:calc(100% - 56px) !important;
+}
+

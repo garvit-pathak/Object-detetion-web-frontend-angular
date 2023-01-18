@@ -1,0 +1,72 @@
+<mat-card class="model-list-card my-card">
+  <mat-card-header>
+    <div class="title">
+      Models
+      <button mat-flat-button color="primary" class="float-right" *ngIf="project.hasModelPermission('create','model')"  [disabled]="checkSequential" (click)="newModel()">New Model</button>
+    </div>
+  </mat-card-header>
+  <mat-card-content> 
+    <ng-container *ngIf="modelList?.length>0;else noModels">
+    <ng-container *ngIf="!checkSequential;else sequentialModels"><!-- Model list for dashboard page -->
+      <mat-list>
+        <mat-list-item *ngFor="let model of modelList">
+          <h3 matLine>
+            <a [routerLink]="['/projects/',project.project_id,'models',model.id]" style="color:black;">{{model.name}}</a>
+            <mat-icon color="warn" style="float: right;cursor: pointer;" *ngIf="project.hasModelPermission('delete')" (click)="deleteModel(model.id)">delete</mat-icon>
+          </h3>
+          <p matLine>
+            <span class="model model-{{model.status}}"> {{model.status}} </span>
+          </p>
+        </mat-list-item>
+      </mat-list>
+    </ng-container>
+    
+    <ng-template #sequentialModels> <!-- manual list for detection app prebuilt models  -->
+     
+      <mat-list>
+        <ng-container *ngIf="modelList[0].number_of_images == 0; else imagesAreThere">
+          <mat-list-item>
+            <h3 matLine>
+              <a (click)="goToModel()" style="color:black;">{{modelList[0].name}}</a>
+              
+            </h3>
+           
+            <p matLine>
+              <span class="model model-{{modelList[0].status}}"> {{modelList[0].status}} </span>
+            </p>
+          </mat-list-item>
+        </ng-container>
+
+        <ng-template #imagesAreThere>
+          <mat-list-item>
+            <h3 matLine>
+              <a [routerLink]="['/projects/',project.project_id,'models',modelList[0].id,'training']" style="color:black;">{{modelList[0].name}}</a>
+              <!-- <mat-icon color="warn" style="float: right;cursor: pointer;" [hidden]="checkSequential" *ngIf="project.hasModelPermission('delete')" (click)="deleteModel(modelList[0].id)">delete</mat-icon> -->
+            </h3>
+           
+            <p matLine>
+              <span class="model model-{{modelList[0].status}}"> {{modelList[0].status}} </span>
+            </p>
+          </mat-list-item>
+        </ng-template>
+        
+        <mat-list-item [disabled] = "!readyModel">
+          <h3 matLine >
+            <a  [routerLink]="['/projects/',project.project_id,'models',modelList[1].id,'training']" style="color:black;" >{{modelList[1].name}}</a>
+            <!-- <mat-icon color="warn" style="float: right;cursor: pointer;" [hidden]="checkSequential" *ngIf="project.hasModelPermission('delete')" (click)="deleteModel(modelList[1].id)">delete</mat-icon> -->
+          </h3>
+          <p matLine>
+            <span class="model model-{{modelList[1].status}}" > {{modelList[1].status}} </span> 
+          </p>
+        </mat-list-item>
+      </mat-list>
+    </ng-template>
+  </ng-container>
+    <ng-template #noModels>
+      <div class="no-items-found">No models found</div>
+    </ng-template>
+  </mat-card-content>
+</mat-card>
+<div *ngIf ='checkSequential' class="d-flex  flex-column align-items-center button-div justify-content-center">
+  <button mat-flat-button color="primary"  class="action-button m-2" [disabled]="!gotoModel" [routerLink]="['/projects/',project.project_id,'models',modelList[0].id,'use']">Use Model</button>
+</div>

@@ -1,0 +1,232 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+  background:#1f2d7e;
+  box-shadow: 3px 0px 4px -2px black ;
+  
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+  
+}
+.mat-toolbar {
+  box-shadow: 0 3px 5px -1px rgb(0 0 0 / 20%), 0 6px 10px 0 rgb(0 0 0 / 14%), 0 1px 18px 0 rgb(0 0 0 / 12%) !important;
+  height: 60.5px !important;  
+  color: white;
+    background-color:var(--color-primary);
+
+}
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  height: 56px;
+}
+
+:host ::ng-deep .disabledNav {
+  pointer-events: none;
+  cursor: default;
+  color: #979797 !important;
+}
+
+
+mat-icon {
+  // margin-left: 8px;
+  cursor: pointer;
+  margin-right: 8px;
+}
+.name-icon{
+  display: flex;
+  justify-content:center;
+span{
+  background-color:var(--color-primary);
+  border-radius:50%;
+  font-size:16px;
+  color:white;
+  padding:8px;
+  // margin-bottom: 16px;
+}
+}
+
+.profile-info {
+ 
+    color: white;
+   padding: 0px;
+
+  // .user-name {
+  //   color: var(--color-primary);
+  //   font-size: 1.3rem;
+
+  // }
+
+  // .user-email {
+  //   font-size: 0.8rem;
+  //   margin-top: 3px;
+  // }
+      
+  // h3 {
+  //   color: var(--color-primary);
+  // }
+}.profile-links{
+  color: white;
+  mat-icon{
+    color: white;
+  }
+  &:hover{
+    color: goldenrod !important;
+border-radius: 8px;
+// background-color: #e5ebfb !important;
+mat-icon{
+  color: goldenrod ;
+}
+  }
+}
+
+img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-bottom: 8px;
+}
+
+.main-list {
+  overflow-y: auto;
+  height: calc(100% - 200px);
+  position: relative;
+  .mat-subheader{
+    color: var(--color-accent);
+    line-height:unset;
+  }
+  .list-items {
+    height: 41px !important;
+    color: white ;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif !important;
+    line-height: 1.5 !important;
+    letter-spacing: 0.00938em !important;
+    &:hover{
+      color: goldenrod !important;
+  border-radius: 8px;
+  background-color: #0c276a;
+    }
+  }
+}
+.profile{
+  height:unset;background-color: rgb(95 111 197);
+  .profile-info{
+    height: 56px;padding: 0px;padding-right: 39px;
+    .profile-image{
+     width: 35px;height: 31px;cursor: pointer;border-radius: 50%;margin-right: 8px;
+    }
+  }
+}
+.footer {
+  bottom: 0px;
+  left: 0px;
+  height: 110px !important;
+  position: absolute;
+  width: 100%;
+  background-color: rgb(95, 111, 197);
+
+  h3 {
+    margin: 0px;
+  }
+
+  mat-icon {
+    cursor: pointer;
+    margin-right: 8px;
+  }
+}
+
+
+.mat-divider{
+  background-color: white;
+ 
+}
+.top-divider{
+  margin-bottom: 20px;
+}
+.mat-sidenav-content{
+  overflow-x: hidden;
+  .mat-toolbar{
+    .logo{
+      font-family: MazzardM-Bold;    padding-top: 9px;
+      cursor: pointer;
+      .x{
+        font-size: 45px;    margin-left: 25px;color: var(--color-accent);
+      }
+      .tract{
+        font-size: 31.5px;cursor: pointer;
+      }
+    }
+    .main-icon{
+      margin-top: 9px;
+      .notification-icon{
+        margin-right: 37px;
+
+        &:hover{
+      color: var(--color-accent);
+  
+        }
+      }
+      .settings-icon {
+        margin-right: 37px;
+        &:hover{
+          color: var(--color-accent);
+      
+            }
+      }
+      .profile-icon{
+        &:hover{
+          color: var(--color-accent);
+      
+            }
+            .down-arrow{
+              margin-right: 11px;    margin-left: -10px;
+            }
+      }
+    }
+  }
+}
+:host ::ng-deep .link-active {
+  // background-color: rgba(103, 58, 183, 0.2) !important;
+  background-color: #e5ebfb !important;
+  color: goldenrod !important;
+  border-radius: 4px;
+}
+
+::ng-deep .mat-expansion-panel-body {
+  padding: 0px  !important;
+}
+
+::ng-deep  .mat-expansion-indicator::after {
+  color: white !important;
+    margin-top: -8px;
+}
+@media (max-width: 768px) {
+  .logo{
+   .x{
+        margin-left: -5px !important
+    }
+    
+  }
+  .main-icon{
+    margin-left: 59px !important;
+
+    .notification-icon{
+      margin-right: 19px !important;
+
+
+     
+    }
+    .settings-icon {
+      margin-right: 19px !important; 
+
+      
+    }
+  
+  }
+}

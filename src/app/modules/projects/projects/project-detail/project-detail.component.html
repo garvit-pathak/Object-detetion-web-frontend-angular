@@ -1,0 +1,29 @@
+<mat-card class="project-overview-card mat-elevation-z0">
+  <mat-card-header>
+    <mat-card-title>
+      <div>
+        <span> Project Overview</span>
+       
+        <div class="d" style="float: right;    margin-top: -15px;">
+
+          <app-back-navigation ></app-back-navigation>
+        </div>
+      </div>
+      </mat-card-title>
+    <mat-card-subtitle></mat-card-subtitle>
+  </mat-card-header>
+</mat-card>
+<div class="d-flex justify-content-center" style="    margin-top: 33px;margin-bottom: 17px;font-size: 25px;font-family: 'MazzardM-Bold';color: darkblue">
+
+  {{project.project_name}}
+  <button style="margin-top: -12px;" mat-icon-button color="primary" *ngIf="project.hasProjectPermission()" (click)="openDialog()">
+    <mat-icon >edit</mat-icon>
+  </button>
+</div>
+
+<div class="d-flex justify-content-center" style="    margin-top: -11px;margin-bottom: 17px;font-size: 20px;color: darkgray  ;  padding-right: 48px;">
+  {{project.project_description}}
+
+</div>
+
+<!-- class="float-right" -->

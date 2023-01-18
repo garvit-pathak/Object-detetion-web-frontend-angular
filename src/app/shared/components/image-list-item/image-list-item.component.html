@@ -1,0 +1,6 @@
+<div class="col-auto " class="image-div p-2">
+
+  <input type="checkbox" [checked]="checked" #in id="{{image.id}}" *ngIf="selectable" (change)="onChange(image.id, $event.target.checked,in)">
+  <label for="{{image.id}}"><img [src]="image.name" /></label>
+
+</div>

@@ -1,0 +1,31 @@
+<div class=" flex-column p-2 dashboard-child">
+  <mat-card class="dashboard-overview-card  mat-elevation-z0">
+    <mat-card-header>
+      <mat-card-title> Dashboard <span class="date-time" style="float: right;font-size: 15px;"><span class="today" style="color: lightslategray;padding-right: 12px;">Today : </span> <span style="padding-right: 14px;color: #1f2d7e;">{{today}} </span> </span></mat-card-title>
+    </mat-card-header>
+  </mat-card>
+</div>
+<div class="row">
+  <div class="col-md-6 process">
+    <div  class="">
+      <app-process-counts class="p-2 process-child" [isDashboard]="true"></app-process-counts>
+      
+   
+
+    </div>
+  </div>
+  <div class="col-md-6 plan-usage">
+    <div class="" >
+      <app-plan-usage class="p-2 plan-child" ></app-plan-usage>
+    </div>
+
+  </div>
+</div>
+<div class="d-flex justify-content-center a" >
+  <app-project-list class="p-2 project-list"></app-project-list>
+
+</div>
+<!-- margin-top: -326px;position: absolute; -->
+<!-- <div style="width: 52%;border-radius: 5px;  margin-left: 77px; margin-top: -176px; " class="">
+  
+</div> -->

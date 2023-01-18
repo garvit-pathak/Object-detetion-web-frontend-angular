@@ -1,0 +1,76 @@
+<div class="outer-section outer-section-background" style="margin-top: 8px;">
+  <div class="container-lg ">
+    <div class="row col-md-12">
+
+      <div class="wrap-contact100 p-5 d-flex flex-row justify-content-md-between  flex-nowrap ">
+        <div class="contact100-pic">
+          <img src="/assets/images/undraw_Opened_re_i38e.svg" alt="IMG">
+
+        </div>
+        <div class="contact100-form">
+          <span class="contact100-form-title">
+            Get in touch
+          </span>
+          <form [formGroup]="form" class="d-flex flex-column w-100 form flex-grow-1">
+            <div class="first-child">
+              <mat-form-field appearance="standard">
+                <mat-label>First Name</mat-label>
+                <input class="input" matInput type="text" formControlName="first_name" id="first_name">
+                <mat-error *ngIf="hasError('first_name','required')">First name is required</mat-error>
+                <mat-error *ngIf="hasError('first_name','serverError')">{{getError('first_name','serverError')}}</mat-error>
+              </mat-form-field>
+              <mat-form-field appearance="standard" class="pl-2">
+                <mat-label>Last Name</mat-label>
+                <input class="input" matInput type="text" formControlName="last_name" id="last_name">
+                <mat-error *ngIf="hasError('last_name','required')">Last name is required</mat-error>
+                <mat-error *ngIf="hasError('last_name','serverError')">{{getError('last_name','serverError')}}</mat-error>
+
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field appearance="standard">
+                <mat-label>Email</mat-label>
+                <input matInput type="text" formControlName="email" id="email">
+                <mat-error *ngIf="hasError('email','required')">Email is required</mat-error>
+              </mat-form-field>
+
+            </div>
+            <div>
+              <mat-form-field appearance="standard">
+                <mat-label>Contact Number</mat-label>
+                <input matInput type="number" formControlName="contact_number" id="contact_number">
+                <mat-error *ngIf="hasError('contact_number','required')">Contact Number is required</mat-error>
+                <mat-error *ngIf="hasError('contact_number','serverError')">{{getError('contact_number','serverError')}}</mat-error>
+
+              </mat-form-field>
+            </div>
+            <div>
+
+              <mat-form-field appearance="standard">
+                <mat-label>Ask your question</mat-label>
+                <textarea matInput rows="5" formControlName="query" id="query"></textarea>
+                <mat-error *ngIf="hasError('query','required')">Query is required</mat-error>
+
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field appearance="standard">
+                <mat-label>Organization</mat-label>
+                <input matInput type="text" formControlName="organization" id="organization">
+              </mat-form-field>
+            </div>
+            <div class="submit-div">
+          <button mat-raised-button color="primary" (click)="onSubmit()">Submit Query</button>
+
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+

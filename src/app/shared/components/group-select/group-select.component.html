@@ -1,0 +1,26 @@
+
+<mat-form-field [appearance]="appearance" class="group-select" [ngStyle]="styleClass">
+  <mat-label *ngIf="showLabel">Group</mat-label>
+  <mat-select  [value]="defaultGroup" (selectionChange)="onSelectionChange($event)" *ngIf="!isBasic; else basicSelect">
+    <ng-container *ngFor="let group of groups$ ">
+      <mat-option  [value]="group.group_id" >
+        {{group.group_name}}
+      </mat-option>
+    </ng-container>
+
+  </mat-select>
+
+
+
+  <ng-template #basicSelect>
+    <select matNativeControl (change)="onSelectionChange($event)">
+      <ng-container *ngFor="let group of groups$ ">
+        <option  [value]="group.group_id" >
+          {{group.group_name}}
+        </option>
+      </ng-container>
+    </select>
+
+  </ng-template>
+
+</mat-form-field>

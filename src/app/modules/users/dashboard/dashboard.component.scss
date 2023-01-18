@@ -1,0 +1,73 @@
+
+@import 'card' ;
+::ng-deep .dashboard-overview-card {
+  
+  
+  background: #e5ebfb;
+  margin-left: -3px;
+  box-shadow: 1px 1px 3px 1px darkgrey;
+
+  height: 52px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  .mat-card-header {
+    display: block;
+    color: var(--color-primary);
+    //  border-bottom: .2rem solid #1f2d7e; 
+    
+    margin-left: 21.5px;
+
+    
+    .mat-card-title{
+              font-family: "Nunito-Regular";
+           font-size: 22px;
+    }
+  }
+  .mat-card-header-text{
+    margin: 0;
+  }
+  .mat-card-subtitle {
+    margin: 0;
+  }
+}
+.process{
+  padding: 58px;
+  padding-top: 0px;
+  padding-bottom: 8px;
+}
+.plan-usage{
+  padding: 1px 14px 9px 1px;
+
+}
+.a{
+  // width: 52%;border-radius: 5px;  margin-left: 475px;margin-top: -11px;
+}
+@media only screen and (max-width: 1020px) {
+  .plan-child, .process-child, .project-list, .dashboard-child{
+    flex-basis: 90%;
+  }
+
+}
+@media only screen and (max-width: 768px) {
+  .mat-card-header {
+  
+    margin-left: -4.5px;
+    .date-time{
+      margin-right: -20px;
+
+      font-size:14px !important ;
+      .today{
+        padding-right: 1px !important;
+      }
+    }
+  }
+  .process{
+    padding: 23px;
+    padding-top: 0px;
+    padding-bottom: 8px;
+  }
+  .plan-usage{
+    padding: 6px 22px 20px 26px;
+
+  }
+}

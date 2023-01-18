@@ -1,0 +1,59 @@
+<div class="head">
+  <h1 class="mat-title">Train Model</h1>
+  <div class="d" style="float: right;    margin-top: -57px;">
+
+    <app-back-navigation ></app-back-navigation>
+  </div>
+</div>
+<div class="container-fluid" >
+  <div class="row" style="max-height: 35px !important;">
+    
+      <div style="width: 140px;    margin-left: 45px;">
+        <app-training-image-list #taggingImageList (imageSelected)="onImageSelected($event)"
+          (selectedImageType)="onSelectedImageType($event)"  ></app-training-image-list>  
+      </div>
+      
+    
+    <div class="col pt-3">
+      <!-- <p>pppp {{canvas.rectSelected }}</p> [disabled]="!canvas.rectSelected" -->
+      <div class="d-flex flex-row align-items-center  p-2">
+        <button style="margin-left: 48px;" mat-icon-button matTooltipPosition="above" matTooltip="tagging progress" (click)="openDialog()" *ngIf="!hideChartButton"
+          aria-label="tagging detail">
+          <mat-icon>insert_chart</mat-icon>
+        </button>
+        <button mat-icon-button matTooltipPosition="above" matTooltip="save tags" (click)=" saveImageData() "
+        aria-label="save tags">
+        <mat-icon>save</mat-icon>
+      </button>
+        <button mat-icon-button aria-label="delete tag" (click)=" deleteRect() " matTooltipPosition="above"
+          matTooltip="delete tag" color="warn">
+          <mat-icon>delete</mat-icon>
+        </button>
+
+
+
+        <span class="mx-2 flex-grow-1 text-center ">
+          <app-start-stop-train [projectId]="projectId" [modelId]="modelId" *ngIf="projectId && modelId">
+          </app-start-stop-train>
+        </span>
+        <div style="justify-self: end;">
+          <app-loss-detail [model]="model"></app-loss-detail>
+        </div>
+      </div>
+      <div #canvasContainer style="height: 80%;width: 80%;padding-left: 151px;">
+        <canvas #canvas id="canvas"></canvas>
+      </div>
+
+    </div>
+    <div style="width: 300px;    margin-right: 35px;    margin-top: 75px;">
+      <div class="d-flex flex-column">
+        <app-color-label-list (labelClicked)="onLabelClicked($event) " (labelDeleted)="onLableDeleted($event)" [projectId]="projectId" [modelId]="modelId" 
+          [selectable]="false"></app-color-label-list>
+          <div class="" style="    margin-top: -55px;">
+            <app-label-form [projectId]="projectId" [modelId]="modelId"  *ngIf=" project && project.hasModelPermission('create','label')"  ></app-label-form>
+
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

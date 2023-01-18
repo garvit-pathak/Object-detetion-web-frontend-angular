@@ -1,0 +1,40 @@
+<mat-accordion class="example-headers-align" multi>
+  <mat-expansion-panel [expanded]="true">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Manage Addresses
+      </mat-panel-title>
+      <mat-panel-description>
+        <span class="address-item" (click)="showAddressForm('blank')" *ngIf="addressList?.length != 5 ">
+          <button class="button float-right" mat-raised-button color="primary">New Address</button>
+        </span>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <mat-list dense>
+      <mat-list-item *ngFor="let item of addressList">
+        <div *ngIf="item.is_primary_address" style="margin:5px"> <span class="badge badge-primary">Primary</span> </div>
+        <p matLine>{{item.street}}</p>
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu"
+          style="float:right">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="showAddressForm(item)">
+            <mat-icon>edit</mat-icon>
+            <span>Edit</span>
+          </button>
+          <button mat-menu-item (click)="openDeleteDialog(item.id)">
+            <mat-icon>delete</mat-icon>
+            <span>Delete</span>
+          </button>
+        </mat-menu>
+        <p matLine>
+          {{item.city}}, {{item.state}}, {{item.country}}, {{item.postal_code}}
+        </p>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+    </mat-list>
+  </mat-expansion-panel>
+
+</mat-accordion>

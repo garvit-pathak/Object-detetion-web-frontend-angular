@@ -1,0 +1,49 @@
+<mat-card class="mat-elevation-z0 my-card card" >
+  <mat-card-header>
+    <div class="title">
+      <strong>
+        Upload images
+       </strong> 
+    </div>
+    <mat-card-content #content>
+      <form #formDirective [formGroup]="form">
+        <div style="margin-top: 20px;">
+          <mat-form-field appearance="outline">
+            <mat-label>Process Name</mat-label>
+            <input matInput type="text" formControlName="name" id="process">
+            <mat-error *ngIf="hasError('name', 'required')">Process Name is required</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div style="margin-top: 20px;">
+          <mat-form-field appearance="outline">
+            <mat-label>Select images</mat-label>
+            <ngx-mat-file-input style="max-height: 50px;overflow-y: auto;" formControlName="images" [accept]="'image/*'"
+              multiple></ngx-mat-file-input>
+            <mat-icon matSuffix>attach_file</mat-icon>
+            <mat-error *ngIf="hasError('images','required')">Images is required</mat-error>
+          </mat-form-field>
+        </div>
+
+        <ng-contrainer *ngIf="!checkSequential; else notSequential">
+          <div>
+            <button class="text-uppercase submit-btn mx-auto" mat-raised-button
+            [disabled]="form.invalid"
+            color="primary" (click)="onUpload()">Upload</button>
+          </div>
+        </ng-contrainer>
+      
+        <ng-template  #notSequential> 
+        <div>
+          <button class="text-uppercase submit-btn mx-auto" mat-raised-button
+          [disabled]="form.invalid"
+          color="primary" (click)="onUploadSequential()">Upload</button>
+        </div>
+        </ng-template>
+       
+      </form>
+    </mat-card-content>
+  </mat-card-header>
+</mat-card>
+
+

@@ -1,0 +1,15 @@
+img {
+  border: 1px solid #ddd;
+  /* Gray border */
+  border-radius: 4px;
+  /* Rounded border */
+  height: 120px;
+  width: 120px;
+  transition-duration: 0.2s;
+  transform-origin: 50% 50%;
+}
+
+.active-image{
+  border: 2px solid var(--color-primary);
+
+}

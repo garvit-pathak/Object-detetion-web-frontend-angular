@@ -1,0 +1,20 @@
+ <div class="grid-container">
+    <ng-container *ngFor="let image of images">
+    <div class="product-item">
+      <div class="product-item-content">
+        <img [src]="image.filename" [alt]="image.filename" class="product-image" />
+          <div style="margin-top: 8px;">
+
+              <div>
+                <strong >Meter Reading: </strong><span>{{image.meter_reading}}</span>
+              </div>
+              <div *ngIf="image.meter_number">
+                <strong >Meter Number:</strong><span>{{image.meter_number}}</span>
+              </div>
+
+          </div>
+      </div>
+    </div>
+  </ng-container>
+  </div>
+

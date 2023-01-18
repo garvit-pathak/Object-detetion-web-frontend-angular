@@ -1,0 +1,71 @@
+<mat-card class="my-card">
+  <mat-card-header>
+    <div class="mat-card-title">
+      <div style="padding-top: 14px;    padding-left: 26px;">
+        Assigned Task 
+        <button style="    margin-top: -7px;margin-right: 19px !important;" class="float-right" mat-flat-button color="accent" routerLink="assign-task">Assign Task</button>
+      </div>
+    </div>
+  </mat-card-header>
+  <mat-card-content>
+    <app-group-select [showLabel]="true" appearance="standard" (selectedGroup)="onGroupSelect($event)"></app-group-select>
+    <div class="example-container">
+      <table mat-table [dataSource]="taskList" matSort class="my-table">
+
+        <ng-container matColumnDef="assigned_by">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Assigned by </th>
+          <td mat-cell *matCellDef="let element"> {{element.assigned_by}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="assigned_to">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Assigned to</th>
+          <td mat-cell *matCellDef="let element"> {{element.assigned_to}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="group_name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Group name </th>
+          <td mat-cell *matCellDef="let element"> {{element.group_name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="percent_complete">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Progress </th>
+
+          <td mat-cell *matCellDef="let element">
+            <section class="example-section">
+              <mat-progress-bar mode="determinate" color="accent" [value]="element.percent_complete"></mat-progress-bar>
+                    <div class="progress-value"> {{element.percent_complete}}% </div>
+            </section>
+
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="model_name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Model </th>
+          <td mat-cell *matCellDef="let element"> {{element.model_name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="message">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Message </th>
+          <td mat-cell *matCellDef="let element"> {{element.message}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef>Action</th>
+          <td mat-cell *matCellDef="let element">
+            <mat-icon color="primary" class="action-icon" [routerLink]="['show-task/',element.id]"
+            [queryParams]="{groupId: selectedGroupId, projectId: element.project_id, modelId: element.model_id}"
+            >launch</mat-icon>
+            <mat-icon color="warn" class="action-icon" (click)="openDeleteDialog(element.id)">delete</mat-icon>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+
+    <mat-paginator [length]="totalItem" showFirstLastButtons [pageSizeOptions]="[10, 25, 100]"
+      (page)="onPageChange($event)"></mat-paginator>
+
+  </mat-card-content>
+</mat-card>

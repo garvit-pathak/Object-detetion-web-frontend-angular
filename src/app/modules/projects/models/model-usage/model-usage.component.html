@@ -1,0 +1,23 @@
+<mat-card class="my-card mat-elevation-z0" *ngIf="model">
+  <mat-card-header>
+    <div class="title">
+      Model Usage
+    </div>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="grid-container mt-2">
+      <div class="p-1">Hits used:
+        <strong>&nbsp;{{model.hits_count}}</strong>
+      </div>
+      <div class="p-1">Storage used:
+        <strong>&nbsp;{{model.storage_used}}GB</strong>
+      </div>
+      <div class="p-1">Training Count:
+        <strong>&nbsp;{{model.number_of_training}}</strong>
+      </div>
+      <div class="p-1">Total Images:
+        <strong>&nbsp;{{model.number_of_images}}</strong>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

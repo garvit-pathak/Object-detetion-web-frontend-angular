@@ -1,0 +1,26 @@
+mat-form-field{
+  width: 100%;
+}
+.submit-btn{
+  width: 100%;
+  margin-top: 20px;
+
+}
+.submit-btn:disabled{
+  width: 100%;
+  margin-top: 20px;
+  background-color:#8893d0 ;
+  color: white;
+
+}
+.my-card{
+  height: 421.5px;
+  box-shadow: 2px 2px 9px -4px grey;
+  mat-card-header{
+    .title{
+      color: #3f51b5;
+      margin-top: -12px;
+
+    }
+   }
+}

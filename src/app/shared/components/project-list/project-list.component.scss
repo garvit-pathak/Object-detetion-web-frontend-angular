@@ -1,0 +1,32 @@
+@import 'card' ;
+::ng-deep .project-list-card {
+  width: 100%;
+  max-width: 769px;
+  margin: 0 ;
+height: unset !important;
+  .mat-card-header {
+    display: block;
+  }
+  .mat-card-header-text{
+    margin: 0;
+  }
+  .mat-tab-body-wrapper{
+    max-height: 400px;
+  overflow-y: auto;
+  }
+}
+
+mat-list{
+  max-height: 100%;
+  overflow-y: auto;
+
+}
+
+
+
+@media only screen and (min-width: 700px){
+  .project-list-card{
+    width: 95vw;
+
+  }
+}

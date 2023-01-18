@@ -1,0 +1,72 @@
+<div class="main-div">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title class="title">
+        <ng-container *ngIf="requestSent; else notSentTitle">
+          <div class="d-flex flex-row justify-content-center mb-2">
+            <img class="mail-sent-img" src="/assets/images/undraw_Mail_sent_re_0ofv.svg">
+          </div>
+          Please check your Inbox
+        </ng-container>
+        <ng-template #notSentTitle>
+          Welcome to Xtract
+        </ng-template>
+      </mat-card-title>
+    </mat-card-header>
+      <mat-card-content>
+        <ng-container *ngIf="!requestSent; else notSentContent">
+          <div class="reset-form">
+            <form [formGroup]="form">
+                <p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>First Name</mat-label>
+                        <input class="input" matInput type="text" formControlName="first_name" id="first_name">
+                        <mat-error *ngIf="hasError('first_name','required')">First name is required</mat-error>
+                        <mat-error *ngIf="hasError('first_name','serverError')">{{getError('first_name','serverError')}}</mat-error>
+                        <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Last Name</mat-label>
+                        <input class="input" matInput type="text" formControlName="last_name" id="last_name">
+                        <mat-error *ngIf="hasError('last_name','required')">Last name is required</mat-error>
+                        <mat-error *ngIf="hasError('last_name','serverError')">{{getError('last_name','serverError')}}</mat-error>
+
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input matInput type="text" formControlName="email" id="email">
+                        <!-- <mat-hint>eg:-abc@abc.com</mat-hint> -->
+                        <mat-error *ngIf="hasError('email','required')">Email is required</mat-error>
+
+                        <!-- <mat-error class="error" *ngIf="hasError('email', 'required')">Email  is required</mat-error> -->
+                    </mat-form-field>
+
+
+                </p>
+                <p class="privacy-policy">By clicking Create Account you agree to our <a routerLink="/privacy-policy">privacy policy</a> </p>
+
+                <div>
+                  <button class="submit-btn text-uppercase" [disabled]="!form.valid" mat-raised-button color="primary"
+                    (click)="onSubmit()">create account</button>
+
+                    <div *ngIf="errorMessage" class="errorMessage">{{errorMessage}}</div>
+                </div>
+            </form>
+            <div class="go-to-text" style="text-align: center;">Already have an account? <a routerLink="/auth/login">Log in</a></div>
+
+        </div>
+        </ng-container>
+        <ng-template #notSentContent>
+          <div class="paragraph">
+            We’ve sent a message with a link to activate your account. Tap on the link in the email to proceed.
+          </div>
+
+        </ng-template>
+
+
+      </mat-card-content>
+  </mat-card>
+
+
+</div>

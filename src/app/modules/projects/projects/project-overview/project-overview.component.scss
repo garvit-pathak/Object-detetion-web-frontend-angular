@@ -1,0 +1,13 @@
+@import 'card' ;
+@media only screen and (max-width: 1020px) {
+  .process-child, .image-list, .model-list, .project-child{
+    flex-basis: 90%;
+  }
+
+}
+@media only screen and (min-width: 1020px) {
+
+}
+@media (max-width: 1538px){
+  
+}

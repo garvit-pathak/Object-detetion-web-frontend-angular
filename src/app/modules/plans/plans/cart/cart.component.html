@@ -1,0 +1,76 @@
+
+<div class="d-flex flex-row justify-content-center mt-2">
+  <mat-card class="my-card cart-card mat-elevation-z0">
+    <mat-card-header>
+      <div class="title">
+        Billing Summary
+        <div class="address ml-auto">
+        <app-address-dropdown (selectionChange)="onSAddressSelection($event)"></app-address-dropdown>
+
+        </div>
+        <span layout="row" class="my-divider"><hr flex/></span>
+
+      </div>
+    </mat-card-header>
+
+    <mat-card-content *ngIf="loadItem">
+
+      <ng-container *ngIf=" cart && cart.plans.length; else noPlans">
+        <div class="shopping-cart mt-2" >
+          <div class="cart-item cart-heading">
+            <div class="buttons">
+              Remove
+            </div>
+            <div class="description my-auto">Plan Name</div>
+            <div class="quantity">Quantity</div>
+            <div class="effetive-from">Effetive from</div>
+            <div class="total-price">Total</div>
+          </div>
+          <div class="cart-item" *ngFor="let plan of cart.plans; let i=index">
+            <div class="buttons">
+              <button (click)="cart.removePlan(i)" [disabled]="isDisabled" mat-icon-button>
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+            <div class="description my-auto">
+              <span>{{ plan.plan.name}}</span>
+            </div>
+            <div class="quantity">
+              <button mat-icon-button *ngIf="btnVisible(plan)" (click)="cart.decreaseQuantity(plan.plan.id)">-</button>
+              <input type="text" name="name" [disabled]="!btnVisible(plan)" [value]="plan.quantity">
+              <button mat-icon-button *ngIf="btnVisible(plan)" (click)="cart.increaseQuantity(plan.plan.id)">
+                +
+              </button>
+            </div>
+            <div class="effetive-from">
+              <mat-form-field color="accent" appearance="standard">
+                <mat-label>Effective from</mat-label>
+                <input matInput [(ngModel)]="plan.effectiveFrom" [min]="minDate" [max]="maxDate(plan)"
+                  (dateChange)="cart.setEffectiveFrom($event.value,plan.plan.id)" [matDatepicker]="picker1">
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+              </mat-form-field>
+            </div>
+            <div class="total-price">Rs.{{plan.total}}</div>
+          </div>
+
+          <!-- <app-cart-item [plan]="plan"></app-cart-item> -->
+        </div>
+        <mat-divider class="divider"> </mat-divider>
+        <!-- <div class="mt-4"></div> -->
+        <p class="to-be-paid mt-3 w-50 float-right">To be paid
+          <span class="jss373">Rs.{{cart.total}}</span>
+        </p>
+        <div style="clear: both;"></div>
+        <button mat-raised-button color="primary"
+        [disabled]="isDisabled || !cart.addressId" (click)="proceedToPay($event)"
+        class="float-right checkout w-50 text-uppercase ">proceed to pay</button>
+      </ng-container>
+      <ng-template #noPlans>
+
+        <div class="no-plans">No plans in cart. <a (click)="goToPlans()">click here</a> to add some plans.</div>
+      </ng-template>
+
+    </mat-card-content>
+  </mat-card>
+</div>

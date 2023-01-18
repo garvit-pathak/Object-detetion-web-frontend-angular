@@ -1,0 +1,83 @@
+<app-back-navigation *ngIf="!accessCode" [path]="'/plans'"></app-back-navigation>
+
+<div id="generic_price_table">
+  <section>
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-12">
+                      <!--PRICE HEADING START-->
+                      <div class="price-heading clearfix">
+                          <h1 style="margin-top:8px">Simple and Transparent Base plans</h1>
+                          <app-group-select
+                          [showLabel]="true"
+                          [isRequired]="true"
+                          [appearance]="'standard'"
+                          (selectedGroup)="onSelectedGroup($event)"
+                          ></app-group-select>
+                      </div>
+                      <!--//PRICE HEADING END-->
+                  </div>
+              </div>
+          </div>
+          <div class="container">
+
+              <!--BLOCK ROW START-->
+              <div class="row" *ngIf="planList">
+                <ng-container *ngFor="let plan of planList | planFilter:{plan_type:'BP'}">
+                  <div class="col-md-4">
+                    <app-plan-list-item [plan]="plan"
+                    (productAdded)="addToCart($event)"
+                    (productRemoved)="removeFromCart($event)"
+                    [basePlanAdded]="cart.basePlanAdded"
+                    [isActive]="isPlanActivate(plan)"></app-plan-list-item>
+
+                  </div>
+
+                </ng-container>
+
+
+
+              </div>
+              <!--//BLOCK ROW END-->
+
+          </div>
+      </section>
+  </div>
+
+<div class="mt-5"></div>
+  <div id="generic_price_table1 ">
+    <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <!--PRICE HEADING START-->
+                        <div class="price-heading clearfix">
+                            <h1>Add On plans</h1>
+                        </div>
+                        <!--//PRICE HEADING END-->
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+
+                <!--BLOCK ROW START-->
+                <div class="row" *ngIf="planList">
+                  <ng-container *ngFor="let plan of planList | planFilter:{plan_type:'AD'}">
+                    <div class="col-md-4">
+                      <app-plan-list-item [plan]="plan"
+                      (productAdded)="addToCart($event)"
+                    (productRemoved)="removeFromCart($event)"
+                      ></app-plan-list-item>
+
+                    </div>
+
+                  </ng-container>
+
+
+
+                </div>
+                <!--//BLOCK ROW END-->
+
+            </div>
+        </section>
+    </div>

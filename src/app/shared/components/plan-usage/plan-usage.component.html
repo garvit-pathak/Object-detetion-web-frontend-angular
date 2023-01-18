@@ -1,0 +1,175 @@
+<div class="">
+  <mat-card class="my-card  mat-elevation-z0">
+
+    <mat-card-header class="d-flex flex-row justify-content-between">
+      <mat-card-title class="title">
+        Current Plan
+      </mat-card-title>
+      <mat-card-subtitle>
+        <div *ngIf="planDetail | async as data">
+          {{data.results[0].name}}
+        </div>
+      </mat-card-subtitle>
+      <div class="float-right">
+        <app-group-select [showLabel]="true" [isBasic]="true" class="group-select ml-auto"
+          (selectedGroup)="onGroupSelect($event)" [appearance]="'standard'">
+        </app-group-select>
+      </div>
+    </mat-card-header>
+    <mat-card-content>
+      <ng-container #c *ngIf="planDetail | async as data; else loadingOrError1">
+
+        <div [(ngModel)]="planDetail">
+
+          <div class="grid-container">
+
+            <div class=""
+              style="height: 191px;box-shadow: 2px 1px 4px 0px grey;background-color: #e5ebfb;border-radius: 10px;    margin-right: 13px">
+              <div class="">
+                <p
+                  style="padding-left: 48px;font-size: 14px;font-family: 'Poppins-SemiBold';padding-top: 7px;color: #1f2d7e;">
+                  Model Trained</p>
+                <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" height="170"
+                  [chartType]="doughnutChartType"></canvas>
+                <p style="   padding-left: 86px;
+                  font-size: 16px;
+                  font-family: Poppins-SemiBold;
+                  padding-top: 4px;
+                  color: #1f2d7e;">
+                  {{model_trained_percentage}}% </p>
+              </div>
+            </div>
+
+            <div class=""
+              style="height: 191px;box-shadow:2px 1px 4px 0px grey;background-color: #e5ebfb;border-radius: 10px;    margin-right: 13px; ">
+              <p
+                style="padding-left: 65px;font-size: 14px;font-family: 'Poppins-SemiBold';padding-top: 7px;color: #1f2d7e;">
+                Hit Used </p>
+              <canvas baseChart [data]="doughnutChart2Data" [labels]="doughnutChart2Labels" height="170"
+                [chartType]="doughnutChart2Type"></canvas>
+              <p style="   padding-left: 90px;
+                font-size: 16px;
+                font-family: Poppins-SemiBold;
+                padding-top: 4px;
+                color: #1f2d7e;">
+                {{hits_used_percentage}}% </p>
+            </div>
+            <div class=""
+              style="height: 191px;    border-radius: 10px;box-shadow:2px 1px 4px 0px grey;background-color: #e5ebfb;">
+              <p
+                style="padding-left: 74px;font-size: 14px;font-family: 'Poppins-SemiBold';padding-top: 7px;color: #1f2d7e;">
+                Storage
+              <p>
+
+                <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType"
+                  height="170"></canvas>
+              <p style="      padding-left: 88px;font-size: 16px;font-family: Poppins-SemiBold;margin-top: -10px;color: #1f2d7e;">
+                {{storage_percentage}}% </p>
+            </div>
+          </div>
+
+          <!-- <div class="p-1">Hits used:
+            <mat-progress-bar mode="buffer" value="5"></mat-progress-bar>
+            <strong>&nbsp;{{data.hits_used}}/{{data.overall_hits_available}}</strong>
+          </div> -->
+          <!-- <div class="p-1">
+            Storage used:
+            <strong>&nbsp;{{data.storage_used}}/{{data.overall_storage}}GB</strong>
+          </div> -->
+          <!-- style="margin-left: -30px;" -->
+          <!-- <div class="p-1">Models trained:
+            <mat-progress-bar mode="determinate" value="80"></mat-progress-bar>
+
+            <strong>&nbsp;{{data.model_trained}}/{{data.overall_model_training_available}}</strong>
+          </div> -->
+
+
+        </div>
+        <!-- <div class="grid-container">
+          <div style="    margin-top: 19px;" class="p-1">Models downloaded:
+
+            <strong>&nbsp;{{data.models_downloaded}}/{{data.overall_model_download_available}}</strong>
+          </div>
+          <mat-icon style="margin-top: 20px;font-size: 21px;margin-left: -8px;color: #1f2d7e;">cloud_download</mat-icon>
+
+          <div class="p-2" style="    margin-top: 15px;margin-left: -31px;">No. of user:
+            <strong>&nbsp;{{data.users_added}}/{{data.number_of_users_available}}</strong>
+            <mat-icon style="font-size: 19px;position: absolute;color: #1f2d7e;margin-left: 6px;">person</mat-icon>
+          </div>
+        </div> -->
+
+
+      </ng-container>
+    </mat-card-content>
+
+
+    <div class="row" style="    width: 80%;margin-left: 99px;margin-top: -23px;" *ngIf="planDetail | async as data; ">
+      <div class="col-md-6" style="    margin-right: -18px;">
+
+        <mat-card class="my-card-2">
+
+          <div class="row">
+            <div
+              style="    max-width: 56px;height: 44px;border-radius: 44%;background: white;margin-left: 6px;margin-top: -10px;"
+              class="col-md-4">
+              <mat-icon style="        margin-top: 6px;
+              font-size: 32px;
+              margin-left: -2px;
+              color: #1f2d7e;">cloud_download
+              </mat-icon>
+            </div>
+            <div style="    color: #1f2d7e;font-family: 'Poppins-SemiBold';    margin-top: 1px;" class="col-md-6">
+              <p class="urg">Models downloaded : {{data.models_downloaded}}/{{data.overall_model_download_available}}
+              </p>
+
+            </div>
+          </div>
+        </mat-card>
+      </div>
+      <div class="col-md-6">
+
+        <mat-card class="my-card-2">
+          <div class="row">
+            <div
+              style="    max-width: 56px;height: 44px;border-radius: 44%;background: white;margin-left: 6px;margin-top: -10px;"
+              class="col-md-4">
+              <mat-icon style="       margin-top: 6px;
+              font-size: 32px;
+              margin-left: -2px;
+              color: #1f2d7e;">person</mat-icon>
+            </div>
+            <div style="    font-size: 14px;color: #1f2d7e;font-family: 'Poppins-SemiBold';    margin-top: 1px;"
+              class="col-md-6">
+              <p style="width: 235px;">No. of person : {{data.users_added}}/{{data.number_of_users_available}}</p>
+
+            </div>
+          </div>
+
+
+        </mat-card>
+      </div>
+    </div>
+  </mat-card>
+
+  <ng-template #loadingOrError1>
+
+
+    <ng-container *ngIf="errorObject; else loading">
+      <h1>No Active Plan</h1>
+      <button mat-raised-button color="primary" [queryParams]="{groupId: selectedGroupId}"
+        [routerLink]="['/plans','pricing']" matTooltip="Purchase Plan"
+        aria-label="Button that displays a tooltip that can be programatically disabled">Activate Now</button>
+
+    </ng-container>
+
+    <ng-template #loading>
+      <div class="col-12 text-center">
+        <mat-spinner></mat-spinner>
+      </div>
+    </ng-template>
+
+
+
+
+  </ng-template>
+</div>

@@ -1,0 +1,19 @@
+
+
+<app-faq-header></app-faq-header>
+<div class="wrapper mt-2">
+  <section class="faq-list">
+    <mat-list>
+
+      <mat-list-item *ngFor="let item of list | async">
+        <mat-icon mat-list-icon>article</mat-icon>
+        <a matLine [routerLink]="item.id" [innerHTML]="item.question | safeHtml" style="color:black !important; font-weight:400 !important;"></a>
+      <mat-divider></mat-divider>
+
+      </mat-list-item>
+
+    </mat-list>
+
+  </section>
+</div>
+

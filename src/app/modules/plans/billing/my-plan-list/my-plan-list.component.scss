@@ -1,0 +1,60 @@
+@import 'card';
+
+mat-card{
+  height:calc(100% - 56px) !important;
+}
+// :host ::ng-deep .plan-card{
+//   // width: 80%;
+//   margin-left: auto;
+//   margin-right: auto;
+//   margin-top:16px;
+//   height: unset;
+// }
+
+// mat-card-content{
+//   // max-height:400px
+// }
+.overview-card {
+  
+  
+  background: #e5ebfb;
+  margin-left: -11px;
+  box-shadow: 1px 1px 3px 1px darkgrey;
+width: 101.3%;
+  height: 52px;
+  margin-top: 2px;
+  margin-bottom: 5px;
+  .mat-card-header {
+    display: block;
+    color: var(--color-primary);
+    //  border-bottom: .2rem solid #1f2d7e; 
+    
+    margin-left: 21.5px;
+
+    
+    .title{
+      padding-top: 7px;
+      padding-right: 13px;
+              font-family: "Nunito-Regular";
+           font-size: 22px;
+    }
+  }}
+.example-container {
+  max-height: 60vh;
+  overflow: auto;
+}
+
+.my-table{
+  width:100%
+}
+
+.buy-new{
+  background-color: var(--color-accent);
+  letter-spacing:0.1em;
+  font-size: 14px;
+  // font-weight: 500;
+  // color: white;
+}
+.make-gold {
+  background-color: gold
+}

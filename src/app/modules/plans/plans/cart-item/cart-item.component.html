@@ -1,0 +1,26 @@
+<div class="cart-item">
+  <div class="buttons">
+    <button mat-icon-button>
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+  <div class="description my-auto">
+    <span>{{ plan.plan.name}}</span>
+  </div>
+  <div class="quantity">
+    <button mat-icon-button>-</button>
+    <input type="text" name="name" [value]="plan.quantity">
+    <button mat-icon-button>
+      +
+    </button>
+  </div>
+  <div class="effetive-from">
+    <mat-form-field color="accent"  appearance="standard">
+      <mat-label>Inherited calendar color</mat-label>
+      <input matInput [(ngModel)]="plan.effectiveFrom" (dateChange)="onDateChange( $event)" [matDatepicker]="picker1">
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
+  </div>
+  <div class="total-price">{{plan.total}}</div>
+</div>

@@ -1,0 +1,16 @@
+
+
+<ng-container *ngIf="list.length; else addressNotFound ">
+  <mat-form-field appearance="standard" class="select-container">
+    <mat-label>Select Billing Address</mat-label>
+    <mat-select (selectionChange)="onSelectionChange($event)" [(value)]="defaultAddress">
+      <mat-option style="width:2000px;  font-size: 12px;" *ngFor="let item of list " [value]="item">
+        {{getDisplayValue(item)}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</ng-container>
+
+<ng-template #addressNotFound>
+  <a style="cursor: pointer;" (click)="addAddress()">click here</a> to add address
+</ng-template>

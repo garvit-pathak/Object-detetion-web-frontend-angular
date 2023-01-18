@@ -1,0 +1,12 @@
+<div style="display: block;height: 500px">
+  <canvas baseChart
+    [data]="pieChartData"
+    [labels]="pieChartLabels"
+    [chartType]="pieChartType"
+    [options]="pieChartOptions"
+    [plugins]="pieChartPlugins"
+    [legend]="pieChartLegend"
+    *ngIf="pieChartLabels && pieChartData"
+    >
+  </canvas>
+</div>

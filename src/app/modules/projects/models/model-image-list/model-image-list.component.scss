@@ -1,0 +1,26 @@
+@import "card";
+:host ::ng-deep .imame-list-card{
+  min-height: 180px;
+}
+mat-card{
+  min-width: 400px;
+  // background: #e5ebfb;
+  box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+  height: 349px !important;
+  width: 528px;
+  // margin-right: 10px;
+  mat-card-header{
+    .title{
+      font-family: "Poppins-SemiBold";
+        font-size: 19.3px;
+        color: #1f2d7e;
+    }
+
+  }
+}
+@media (max-width: 1538px){
+  mat-card{
+    
+    width: 498px;
+  }
+}

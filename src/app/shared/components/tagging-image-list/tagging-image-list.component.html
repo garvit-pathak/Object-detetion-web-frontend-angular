@@ -1,0 +1,24 @@
+
+<mat-card style="padding-top: 0px;">
+  <mat-card-content>
+
+<div class="d-flex flex-column justify-content-start">
+  <ng-container *ngIf="imageList?.length != 0; else zeroImages">
+    <ng-container *ngFor="let image of imageList; let i = index">
+      <div class="image-list-item ">
+        <mat-icon class="tag-icon" *ngIf="image.is_tagged">check_circle</mat-icon>
+        <img   [class.disabled]="image === currentImage"
+        (click)="!(image === currentImage) &&  onImageSelect(image)"
+        [ngClass]="{'active-image': image === currentImage}"[src]="image.name"/>
+        <!-- <mat-icon class="delete-icon" >delete</mat-icon> -->
+      </div>
+    </ng-container>
+  </ng-container>
+
+  <ng-template #zeroImages>
+    <div class="zero-images">No images</div>
+  </ng-template>
+</div>
+
+  </mat-card-content>
+</mat-card>

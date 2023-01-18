@@ -1,0 +1,53 @@
+.image-list-item{
+  width: 100px;
+  height: 75px;
+  position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 2px 0 #0004;
+    border-radius: 4px;
+    margin-bottom: 8px;
+  img{
+    width: 100%;
+    border-radius: 0.2em;
+    object-fit: cover;
+    display: inline-block;
+  }
+}
+mat-card{
+  width: fit-content;
+  height:100%;
+  overflow-y: auto;
+}
+
+.tag-icon {
+  position: absolute;
+  top: 4px;
+  right:4px;
+  // background-color: silver;
+  border-radius: 50%;
+  color: var(--color-success);
+}
+
+.delete-icon{
+  position: absolute;
+  bottom: 4px;
+  right:4px;
+  // background-color: silver;
+  border-radius: 50%;
+  color: var(--color-warn);
+  cursor: pointer;
+}
+.active-image{
+  border: 2px solid var(--color-primary);
+
+}
+
+
+.zero-images{
+  // min-width: 140px;
+  width: 100%;
+  overflow: auto;
+}
+.disabled {
+  cursor: not-allowed;
+}

@@ -1,0 +1,55 @@
+.wrap-contact100 {
+  width: 100%;
+  background: #fff;
+  border-radius: 10px;
+
+}
+
+
+
+.contact100-pic {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  // width: 50%;
+  // padding-top: 55px;
+  img {
+    width: 50%;
+  }
+}
+
+.contact100-form {
+  // width: 390px;
+}
+
+@media (max-width: 850px) {
+  .contact100-pic {
+    display: none;
+  }
+
+  .wrap-contact100 {
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+.contact100-form-title {
+  display: block;
+  // font-family: Montserrat-ExtraBold;
+  font-weight: 500;
+  font-size: 24px;
+  color: #333333;
+  line-height: 1.2;
+  text-align: left;
+  padding-bottom: 36px;
+}
+
+.active-user {
+  font-size: 24px;
+  font-weight: 600;
+  color: #364655;
+  line-height: 1.2;
+
+}

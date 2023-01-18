@@ -1,0 +1,28 @@
+<div class="container-fluid mt-1 outer-container">
+  <div class="row">
+    <div style="width: 140px;">
+      <app-prebuilt-image-list *ngIf="imageList" [imageList]="imageList" (onSelect)="onImageSelect($event)">
+      </app-prebuilt-image-list>
+    </div>
+    <div class="col pt-4 ">
+
+      <div #canvasContainer style="height: 90%;">
+        <canvas #canvas id="canvas"></canvas>
+      </div>
+      <div class="d-flex flex-row justify-content-end">
+        <button mat-stroked-button color="primary" class="upload-btn" (click)="onUploadMore()">CHANGE IMAGES</button>
+
+      </div>
+    </div>
+    <div style="width: 300px;">
+      <app-color-label-list [model]="model" [selectable]="false"></app-color-label-list>
+
+    </div>
+  </div>
+</div>
+
+<!-- <div class="upload-btn-fab">
+  <button mat-fab color="primary" aria-label="upload more" matTooltip="Upload more images" (click)="onUploadMore()">
+    <mat-icon>add</mat-icon>
+  </button>
+</div> -->

@@ -1,0 +1,10 @@
+<mat-list-item *ngFor="let user of userList">
+  <mat-icon mat-list-icon>person</mat-icon>
+  <p matLine>{{user.email | titlecase}}</p>
+  <mat-icon class="float-right" *ngIf="canEdit(user)" (click)="edit(user,$event)" >edit</mat-icon>
+  <mat-icon color="warn" class="float-right" *ngIf="canEdit(user)" (click)="deleteUserFromGroup(user.id)">delete</mat-icon>
+  <p matLine>
+    <span class="role role-{{user.role_name}}"> {{user.role_name}} </span>
+  </p>
+</mat-list-item>
+

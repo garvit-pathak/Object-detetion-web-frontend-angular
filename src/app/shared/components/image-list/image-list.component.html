@@ -1,0 +1,43 @@
+<!--
+<ng-container *ngIf="!isExcerpt">
+  <div class="d-flex flex-row justify-content-end mr-3">
+    <mat-checkbox class="example-margin" (change)="selectAll($event.checked)">Select All</mat-checkbox>
+  </div>
+</ng-container> -->
+
+
+<div class="container-fluid">
+
+  <div class="row m-0  " [ngClass]="(isExcerpt)?'flex-nowrap':'justify-content-center'">
+    <ng-container *ngIf="isExcerpt; else elseBlock">
+      <ng-container *ngFor="let image of images | slice:-3">
+        <app-image-list-item [image]="image"></app-image-list-item>
+      </ng-container>
+    </ng-container>
+
+  </div>
+  <ng-template #elseBlock>
+    <div class="col-12 ">
+      <mat-checkbox class="float-right mr-3" labelPosition="before"
+      *ngIf="selectable"
+      color="warn" [checked]="allSelect"  (change)="selectAll($event)">Select all</mat-checkbox>
+
+    </div>
+   <ng-container *ngFor="let image of images; let i = index">
+    <app-image-list-item [image]="image" [checked]="image.checked" (selected)="onImageSelected($event)" [selectable]="selectable"></app-image-list-item>
+  </ng-container>
+  </ng-template>
+
+  <div class="row">
+    <div class="col">
+      <mat-paginator *ngIf="showPaginator" class="ml-auto p-2 bd-highlight"
+      [length]="imageCount"
+      [pageSize]="pageSize"
+      [pageSizeOptions]="pageSizeOptions"
+      (page)="onPageChange($event)"
+      >
+    </mat-paginator>
+    </div>
+  </div>
+
+</div>

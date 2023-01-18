@@ -1,0 +1,20 @@
+<label mat-mat-dialog-title id="role-title">Change Role</label>
+<mat-dialog-content>
+  <mat-radio-group
+  aria-labelledby="example-radio-group-label"
+  class="example-radio-group"
+  [(ngModel)]="defaultRole"
+ >
+  <mat-radio-button class="example-radio-button" *ngFor="let role of roles" [value]="role.id">
+    {{role.name}}
+  </mat-radio-button>
+</mat-radio-group>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-icon-button mat-dialog-close aria-label="close dialog">
+    <mat-icon>close</mat-icon>
+  </button>
+  <button mat-icon-button color="primary" aria-label="save role" [mat-dialog-close]="defaultRole" cdkFocusInitial>
+    <mat-icon>check</mat-icon>
+  </button>
+</mat-dialog-actions>

@@ -1,0 +1,20 @@
+<h2 mat-dialog-title>Upload project images</h2>
+<mat-dialog-content #content class="mat-typography" >
+  <app-image-upload [multiple]="true"
+
+   (totalFileSize)="onTotalFileSize($event)"
+
+   [batch]="true"
+   (batches)="onBatches($event)"
+   ></app-image-upload>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-button  [disabled]="closeDisabled" (click)="closeDialog()">Close</button>
+    <button mat-raised-button color="primary" [hidden]="checkSequential" (click)="uploadfiles()"  [disabled]="batches.length === 0 || closeDisabled"  cdkFocusInitial>Upload</button>
+
+    <button mat-raised-button color="primary" [hidden]="!checkSequential" (click)="uploadfiles()"  [disabled]="batches.length === 0 || closeDisabled"  [routerLink]="['/projects/',data.project.project_id,'models',modelList[0].id,'training']" cdkFocusInitial>Upload To Retrain</button>
+    <!-- <button mat-raised-button color="primary"  [hidden]="!checkSequential" (click)="uploadDigitModel()"  [disabled]="batches.length === 0 || closeDisabled" cdkFocusInitial>Upload For Digit Model</button> -->
+ 
+</mat-dialog-actions>

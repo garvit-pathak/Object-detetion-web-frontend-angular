@@ -1,0 +1,37 @@
+<div class="main-div">
+  <mat-card class= "login-card">
+        <mat-card-header>
+          <mat-card-title class="title">Welcome back!</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="login-error" *ngIf="invalidLogin">
+            <p>Invalid username or password.</p>
+          </div>
+          <form [formGroup]="form">
+            <div>
+              <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput type="text" formControlName="email" id="email">
+                <mat-error *ngIf="hasError('email', 'required')">Email is required</mat-error>
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" id="password"
+                  (keyup.enter)="onSubmit()">
+                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                <mat-error *ngIf="hasError('password', 'required')">Password is required</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="d-flex flex-column align-items-end mb-2">
+              <a routerLink="/auth/forgotPassword">Forgot password ?</a>
+            </div>
+            <div class="d-flex flex-column align-items-end">
+              <button class="submit-btn" mat-flat-button color="primary" (click)="onSubmit()">Log In</button>
+            </div>
+            <div class="go-to-text" style="text-align: center;">Don't have an account? <a routerLink="/auth/register">Sign up</a></div>
+          </form>
+        </mat-card-content>
+  </mat-card>
+</div>

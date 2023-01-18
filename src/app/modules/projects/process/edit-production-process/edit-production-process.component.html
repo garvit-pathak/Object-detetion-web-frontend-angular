@@ -1,0 +1,18 @@
+<form [formGroup]="form">
+  <p>
+    <mat-form-field appearance="legacy">
+      <mat-label>Production Name</mat-label>
+      <input matInput formControlName="name" cdkFocusInitial (keyup.enter)="onSubmit()">
+      <mat-error *ngIf="hasError('name','maxlength')">Max length is 255.</mat-error>
+    </mat-form-field>
+  </p>
+</form>
+<mat-dialog-actions align="end">
+  <button mat-icon-button mat-dialog-close aria-label="close dialog">
+    <mat-icon>close</mat-icon>
+  </button>
+  <button mat-icon-button color="primary" aria-label="save role" (click)="onSubmit()" cdkFocusInitial>
+    <mat-icon>check</mat-icon>
+  </button>
+</mat-dialog-actions>
+

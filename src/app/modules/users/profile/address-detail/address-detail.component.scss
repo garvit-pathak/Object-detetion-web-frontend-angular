@@ -1,0 +1,60 @@
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  font-weight: 400;
+  font-size: 1.125rem;
+  flex-basis: 0;
+  align-items: center;
+}
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25em 0.4em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .badge {
+    transition: none;
+  }
+}
+a.badge:focus,
+a.badge:hover {
+  text-decoration: none;
+}
+.badge:empty {
+  display: none;
+}
+.btn .badge {
+  position: relative;
+  top: -1px;
+}
+.badge-pill {
+  padding-right: 0.6em;
+  padding-left: 0.6em;
+  border-radius: 10rem;
+}
+.badge-primary {
+  color: #fff;
+  background-color: #007bff;
+}
+a.badge-primary:focus,
+a.badge-primary:hover {
+  color: #fff;
+  background-color: #0062cc;
+}
+a.badge-primary.focus,
+a.badge-primary:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+}

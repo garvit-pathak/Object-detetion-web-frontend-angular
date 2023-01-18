@@ -1,0 +1,22 @@
+<div #searchContainer>
+
+  <mat-form-field appearance="none" id="search-field" >
+    <input matInput #search id="search" type="search" class="pl-2" placeholder="Search the Knowledge Base"
+    aria-label="State" [matAutocomplete]="auto" [formControl]="searchMoviesCtrl">
+
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn"  (optionSelected)="onOptionSelection($event.option.value)">
+      <ng-container *ngIf="!isLoading">
+        <mat-option *ngFor="let movie of filteredMovies" [value]="movie" >
+          <span [innerHTML]="movie.question | safeHtml"></span>
+        </mat-option>
+      </ng-container>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <br>
+
+<ng-container *ngIf="errorMsg;">
+  {{errorMsg}}
+</ng-container>
+
+</div>

@@ -1,0 +1,10 @@
+<mat-list-item>
+  <mat-icon mat-list-icon>person</mat-icon>
+  <p matLine>{{getName(user)}}</p>
+  <mat-icon class="float-right action-icon" *ngIf="canChange()" (click)="editUserRole(user,$event)">edit</mat-icon>
+  <mat-icon color="warn" class="float-right action-icon" *ngIf="canChange()" (click)="delete.emit(user)">delete</mat-icon>
+  <p matLine>
+    <span class="role role-{{user.role_name}}"> {{user.role_name}} </span>
+  </p>
+</mat-list-item>
+

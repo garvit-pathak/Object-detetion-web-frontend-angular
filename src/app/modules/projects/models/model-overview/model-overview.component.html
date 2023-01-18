@@ -1,0 +1,7 @@
+<div class="d-flex flex-column">
+  <app-model-detail [model]="model" [project]="project" *ngIf="model" class="p-2 project-child" ></app-model-detail>
+</div>
+<div class="d-flex flex-row justify-content-between  flex-wrap" style="    margin: 23px;margin-top: 0px;">
+  <app-model-usage class="p-2 process-child" [project]="project" [model]="model" *ngIf="model"></app-model-usage>
+  <app-model-image-list class="p-2 image-list" *ngIf="project && model" [project]="project" [model]="model"></app-model-image-list>
+</div>

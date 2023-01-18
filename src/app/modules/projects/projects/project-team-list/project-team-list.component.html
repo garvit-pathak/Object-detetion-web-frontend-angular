@@ -1,0 +1,16 @@
+<mat-card class="my-card mt-2">
+  <mat-card-header>
+    <div class="title">Project team</div>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list dense *ngIf="project" >
+      <ng-container *ngFor="let u of users | async">
+        <app-user-list-item [user]="u" (edited)="onEdit($event)"
+        [project]="project"
+
+        [canEdit]="canEdit()" (delete)="onDelete($event)"></app-user-list-item>
+
+      </ng-container>
+    </mat-list>
+  </mat-card-content>
+</mat-card>

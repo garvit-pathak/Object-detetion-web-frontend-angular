@@ -1,0 +1,12 @@
+<h2 mat-dialog-title>API Keys</h2>
+<mat-dialog-content>
+  <div  class="heading"> Request Format:</div>
+  <p class="code-container">{{ apiUrl }}</p>
+
+  <div  class="heading">Response Format:</div>
+  <p class="code-container">{{responseData | json}}</p>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>

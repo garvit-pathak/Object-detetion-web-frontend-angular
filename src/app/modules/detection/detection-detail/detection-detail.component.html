@@ -1,0 +1,52 @@
+<div class="head">
+    <h1 class="mat-title">Detection App</h1>
+    <div class="d" style="float: right;    margin-top: -57px;">
+  
+      <app-back-navigation ></app-back-navigation>
+    </div>
+  </div>
+<div class="wrapper">
+    <div class="box1">
+        <mat-card class="example-card">
+            <h1 style="font-family: serif; text-align: left;">
+                <b>Instructions and Overview</b>
+            </h1>
+            <mat-card-content>
+                <p style="font-family: serif; font-size: 17px;"> Alpha numeric app webapplication provides you with a facility to detect number or 
+                    alphabets by using self trained models.It makes use of two models first is for box detection and second is for digit or alphabet recognition. 
+                </p>
+                <b style="font-family: serif; font-size: 18px;">For instance To extract Meter Reading and Meter Number :</b>
+                <br>
+                <br>
+                <ul style="font-family: serif; font-size: 17px;">
+                    <li>Meter Number is usually denoted in a smaller size as compared to other visual text elements present in the meter images
+                        and thus, we typically filter the region representing the whole meter number as whole followed by recognition of digits 
+                        in filtered region.</li>
+                        <br>
+                    <li>When meter reading digits are large enough in resolution such that they are more visually distinguished from each other
+                        as well as a proper bounding box can be drawn over the digits with minimal overlapping of visual region of other digits.</li>
+                </ul>
+                <br>
+                <b style="font-family: serif; font-size: 18px;">How to use the Alpha Numeric app :</b>
+                <br>
+                <br>
+                <ul style="font-family: serif; font-size: 17px;">
+                    <li>Create a new project.</li>
+                    <br>
+                    <li>Add the meter box images in the project.</li>
+                    <br>
+                    <li>Add images to box detection model and make boxes on the area of readings and train the model.</li>
+                    <br>
+                    <li>Now train the digit recognition model.</li>
+                    <br>
+                    <li>Once the box detection model is trained go to digit Recognization model and tag the numbers or alphabets to be detected.</li>
+                    <br>
+                    <li>After the training is completed, click on <b style="font-size: medium;">"Use Model"</b>. Now, you are ready to auto detect the meter readings.</li>
+                </ul>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="box2">
+        <app-project-list class="p-2 project-list" [isSequential]="true"></app-project-list>
+    </div>
+</div>

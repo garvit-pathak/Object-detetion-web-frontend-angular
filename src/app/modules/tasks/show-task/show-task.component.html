@@ -1,0 +1,37 @@
+<div class="container-fluid">
+  <div class="row">
+    <div style="width: 140px;">
+      <app-task-image-list #taggingImageList (imageSelected)="onImageSelected($event)"></app-task-image-list>
+    </div>
+    <div class="col pt-3">
+      <!-- <p>pppp {{canvas.rectSelected }}</p> [disabled]="!canvas.rectSelected" -->
+      <div class="d-flex flex-row align-items-center  p-2">
+        <button mat-icon-button matTooltipPosition="above" matTooltip="task detail" (click)="openDialog()"
+          aria-label="tagging detail">
+          <mat-icon>insert_chart</mat-icon>
+        </button>
+
+        <button mat-icon-button aria-label="delete tag" (click)=" deleteRect() " matTooltipPosition="above"
+          matTooltip="delete tag" color="warn">
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button mat-icon-button matTooltipPosition="above" matTooltip="save tags" (click)=" saveImageData() "
+          aria-label="save tags">
+          <mat-icon>save</mat-icon>
+        </button>
+      </div>
+      <div #canvasContainer style="height: 90%;">
+        <canvas #canvas id="canvas"></canvas>
+      </div>
+
+    </div>
+    <div style="width: 300px;">
+      <div class="d-flex flex-column">
+        <app-color-label-list (labelClicked)="onLabelClicked($event)" (labelDeleted)="onLableDeleted($event)"
+          [selectable]="false" [model]="model" [project]="project" *ngIf="project && model"></app-color-label-list>
+
+        <app-label-form [model]="model" [project]="project" *ngIf=" project && project.hasModelPermission('create','label')"></app-label-form>
+      </div>
+    </div>
+  </div>
+</div>

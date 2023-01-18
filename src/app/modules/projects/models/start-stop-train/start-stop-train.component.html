@@ -1,0 +1,9 @@
+<ng-container *ngIf="canStartTraining;else elseBlock">
+  <button mat-flat-button (click)="openDialog()"  class="start-train text-uppercase" color="primary">start training</button>
+</ng-container>
+<!-- *ngIf="project && project.hasModelPermission('create','training')" -->
+<ng-template #elseBlock>
+  <span class="blink mr-2 training noselect">model training</span>
+  <button mat-flat-button (click)="stopTraining()" class="start-train text-uppercase" color="accent">stop training</button>
+
+</ng-template>

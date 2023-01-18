@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>Confirm Training</h1>
+<div class="content">
+  <p>Do you want to continue from where it left Or you want to start it again?</p>
+  <mat-radio-group aria-label="Select an option" aria-labelledby="example-radio-group-label"
+  class="example-radio-group" [(ngModel)]="scratch">
+    <mat-radio-button class="example-radio-button" *ngFor="let op of list"
+    [checked]="op.checked" [value]="op.value" name="opList">{{op.name}}</mat-radio-button>
+  </mat-radio-group>
+</div>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close aria-label="close dialog">Cancel</button>
+  <button mat-flat-button color="primary" aria-label="save role" [mat-dialog-close]="scratch" cdkFocusInitial>Start Training</button>
+</mat-dialog-actions>
+

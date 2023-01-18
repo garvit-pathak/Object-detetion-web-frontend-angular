@@ -1,0 +1,29 @@
+.image-list {
+  flex-wrap: wrap;
+}
+
+.image-list__item {
+  display: block;
+  // TODO automatically get the height
+  // height: 100px;
+  // width: 100px;
+}
+.grid-container{
+  display: grid;
+  grid-template-columns:  repeat(auto-fill,minmax(100px,1fr));
+  grid-template-rows: 100px;
+  grid-gap: 10px;
+  border: 1px solid red;
+}
+mat-list-option{
+
+  img{
+    height: 100px;
+    width: 100px;
+  }
+}
+.container-fluid{
+padding-left: 25px;
+padding-top: 35px;
+
+}

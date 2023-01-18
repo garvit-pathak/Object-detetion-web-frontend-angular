@@ -1,0 +1,33 @@
+@import 'card' ;
+::ng-deep .project-overview-card {
+
+ 
+  background: #e5ebfb;
+  margin-left: -3px;
+  box-shadow: 1px 0px 3px 1px darkgrey;
+
+  height: 52px;
+  margin-top: 9px;
+  margin-bottom: 19px;
+  .mat-card-header {
+    display: block;
+    color: var(--color-primary);
+    margin-left: 21.5px;
+    
+   
+   .mat-card-title{
+  //  margin-top: 10px; 
+    //  margin-top: -8px;
+  font-family: "Nunito-Regular";
+  font-size: 22px;
+   }
+  }
+  .mat-card-header-text{
+    margin: 0;
+  }
+  .mat-card-subtitle {
+    margin: 0;
+    overflow-y: scroll;
+    max-height: 40px;
+  }
+}

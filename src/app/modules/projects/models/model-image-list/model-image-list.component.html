@@ -1,0 +1,25 @@
+<mat-card class="my-card mat-elevation-z0 imame-list-card">
+  <mat-card-header>
+    <div class="title">
+      Model Images
+
+      <div class="float-right">
+        <button mat-stroked-button color="primary" [routerLink]="['image-selection']" class="mr-2">Add Images</button>
+        <button mat-stroked-button color="primary" (click)="openDialog()" *ngIf="imageList.length;">view all</button>
+      </div>
+    </div>
+
+  </mat-card-header>
+  <mat-card-content>
+
+    <ng-container *ngIf="imageList.length;else noImages">
+      <app-image-list #list1 [images]="imageList" [isExcerpt]="true" *ngIf="imageList"></app-image-list>
+
+    </ng-container>
+
+    <ng-template #noImages>
+      <div class="no-items-found">No images found</div>
+
+    </ng-template>
+  </mat-card-content>
+</mat-card>

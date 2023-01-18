@@ -1,0 +1,49 @@
+<mat-card class="my-card mat-elevation-z0">
+  <mat-card-header>
+    <div class="title" *ngIf="selectable; else notSelectableTitle">
+      <strong>Select Labels</strong>
+      
+    </div>
+    <ng-template #notSelectableTitle>Labels</ng-template>
+  </mat-card-header>
+  <mat-card-content>
+    <ng-container *ngIf="model">
+      <ng-container *ngIf="selectable else elseBlock">
+        <mat-selection-list #selectedLabelList (selectionChange)="selectedlabelsChanged(selectedLabelList.selectedOptions.selected)">
+          <ng-container *ngFor="let label of model.labelsWithColor; let i=index">
+            <mat-list-option *ngIf="i > 0" [value]="label">
+              <mat-icon mat-list-icon [ngStyle]="{'color': label.color}" >label</mat-icon>
+              <div mat-line><span class="label-name">{{label.name | titlecase}}</span></div>
+              <mat-divider></mat-divider>
+          </mat-list-option>
+          </ng-container>
+        </mat-selection-list>
+      </ng-container>
+      <ng-template #elseBlock>
+        <ng-container >
+          <mat-list role="list" dense>
+            <mat-list-item *ngFor="let label of model.labelsWithColor">
+              <mat-icon mat-list-icon [ngStyle]="{'color': label.color}" >label</mat-icon>
+              <div mat-line><span class="label-name" (click)="onLabelClick(label)">{{label.name | titlecase}}</span>
+
+                <ng-container *ngIf="!disableDelete">
+                  <mat-icon *ngIf="(label.id !== -1) && ( project && project.hasModelPermission('delete','label'))"
+                 class="float-right delete-icon" color="warn"
+                 (click)="openDeleteDialog(label.id)"
+                style="font-size: 20px;"
+                 >delete</mat-icon>
+                </ng-container>
+
+                 </div>
+              <!-- <div mat-line> {{label.updated | date}} </div> -->
+              <mat-divider></mat-divider>
+            </mat-list-item>
+          </mat-list>
+          <ng-container *ngIf="model.labelsWithColor.length === 1">
+            <div class="d-flex flex-row justify-content-center no-label">Add label first</div>
+          </ng-container>
+        </ng-container>
+      </ng-template>
+    </ng-container>
+  </mat-card-content>
+</mat-card>

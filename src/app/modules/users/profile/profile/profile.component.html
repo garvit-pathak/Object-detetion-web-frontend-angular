@@ -1,0 +1,77 @@
+<!-- <mat-card class="my-card  mat-elevation-z0 mx-3" style="height: unset;">
+    <mat-card-header>
+      <mat-card-title>Profile</mat-card-title>
+  </mat-card-header>
+  </mat-card> -->
+  <div class="head">
+    <h1 class="mat-title">Profile</h1>
+    <div class="d" style="float: right;    margin-top: -57px;">
+  
+      <app-back-navigation ></app-back-navigation>
+    </div>
+  </div>
+<div class="d-flex flex-row justify-content-center flex-wrap p-2">
+  <div class="d-flex flex-column w-50  p-2">
+    <div class="d-flex flex-column justify-content-center">
+      <mat-card class="my-card text-center mat-elevation-z0">
+        <img src="/assets/images/Group1.png" style="width: 150px;height: 150px;" alt="" />
+        <div class="user-name" *ngIf="user">{{user.getName()}}</div>
+      </mat-card>
+    </div>
+    <mat-card class="my-card basic-information-child mat-elevation-z0">
+      <mat-card-header>
+        <div class="title">Basic Information</div>
+      </mat-card-header>
+      <mat-card-content>
+          <form [formGroup]="form">
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label class="form-label">First Name*</mat-label>
+                <input matInput class="input" formControlName="first_name" id="first_name">
+                <mat-error *ngIf="hasError('first_name', 'required')">First name is required.</mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label class="form-label">Last Name*</mat-label>
+                <input matInput class="input" formControlName="last_name" id="last_name">
+                <mat-error *ngIf="hasError('last_name', 'required')">Last name is required.</mat-error>
+              </mat-form-field>
+              <br>
+              <mat-form-field appearance="outline">
+                <mat-label class="form-label">Group Name*</mat-label>
+                <input matInput class="input" formControlName="group_name" id="group_name">
+                <mat-error *ngIf="hasError('group_name', 'required')">Group name is required.</mat-error>
+              </mat-form-field>
+
+              <b>Visibility : </b> <mat-slide-toggle [checked]="isChecked" formControlName="is_searchable" ></mat-slide-toggle>
+              <br>
+              <mat-form-field appearance="outline">
+                <mat-label class="form-label">Contact Number</mat-label>
+                <input matInput class="input" formControlName="phone_number" id="phone_number">
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label class="form-label">Email</mat-label>
+                <input matInput type="text" formControlName="email" id="email" readonly >
+            </mat-form-field>
+            </p>
+            <div>
+            </div>
+          </form>
+        <div>
+          <button class="button float-right" mat-raised-button color="primary"
+            (click)="saveBasicInfo()" [disabled]="!form.valid">Save Settings</button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="d-flex flex-column w-50">
+    <div class="d-flex flex-row p-2">
+      <app-address-detail class="address-list"></app-address-detail>
+    </div>
+    <div class="d-flex flex-row p-2">
+        <app-change-password-form class="password"></app-change-password-form>
+    </div>
+  </div>
+</div>
+
